@@ -1,11 +1,109 @@
-h2.title{
-	text-align: center;
-	text-decoration: underline;
-	
+/********** START OF NAVIGATION **********/
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
 }
-div{
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s
+}
+
+.sidenav a:hover, .offcanvas a:focus{
+    color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+#body {
+    transition: margin-left .5s;
+    padding: 16px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+/********** START OF BODY **********/
+div.title
+{
+    width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 30px;
+    margin-top: 0px;
+    text-align: center;
+    border: 2px solid black;
+}
+div.title h1{
+    font-family: monospace;
+    letter-spacing: normal;
+}
+/* Body Content */
+#boxes{
+   display: flex;
+    justify-content: space-between;
+}
+
+.Box{
 	border:1px solid black;
-	float: left;
-	padding: 20px;
+    float: left;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    margin-bottom:  20px;
+    width: 15%;
+    height: 100;
+	padding:25px;
 	text-align: center;
+    
+    
 }
+div.ACR{
+    position: relative;
+}
+img{
+    width: 100%;
+    height: 100%;
+}
+.tabContent{
+    display: none;
+    margin-left: 4%;
+    margin-right: 4%;
+    border: 2px solid black;
+    padding: 6px 12px;
+    -webkit-animation:fadeEffect 1s;
+    animation: fadeEffect 1s;
+}
+
+@-webkit-keyframes fadeEffect{
+    from{opacity: 0;}
+    to{opacity: 1;}
+}
+
+@keyframes fadeEffect{
+    from{opacity: 0;}
+    to{opacity: 1;}
+}
+
+
+
+

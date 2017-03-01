@@ -10,47 +10,116 @@ or die ('Error connecting to MySqL Server.');
 <script src="webJS.js" defer></script>
 </head>
 
-<title>  </title>
+<title> Under Construction </title>
 <body>
-<!-- header -->
-<h2 class="title">LHU Fraternity & Sorority</h2>
+<!----------------START OF NAVIGATION MENU---------------->  
+<span style="font-size:30px;cursor:pointer;float:left" onclick="openNav()">&#9776; open</span>
+    <div id="navigation" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <a href="#">Login</a>
+</div>    
+<script>
+    function openNav() {
+        document.getElementById("navigation").style.width = "250px";
+        document.getElementById("body").style.marginLeft = "250px";
+        document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+    }
 
-<div class="boxes">
-<!-- list tabs -->
-<div class="ACR">
-	<p>Alpha Chi Rho</p>
-</div>
-<div class="ASP">
-	<p>Alpha Sigma Phi</p>
-</div>
-<div class="KDR">
-	<p>Kappa Delta Rho</p>	
-</div>
-<div class="PMD">
-	<p>Phi Mu Delta</p>
-</div>
-<div class="AST">
-	<p>Alpha Sigma Tau</p>
-</div>
-<div class="SK">
-	<p>Sigma Kappa</p>
-</div>
-<div class="SSS">
-	<p>Sigma Sigma Sigma</p>
-</div>
-<div class="ZTA">
-	<p>Zeta Tau Alpha</p>
-</div>
-
-<div>
-<!-- section where the movie info will go -->
-
-    <h3>What do you want to know?</h3>
+    function closeNav() {
+        document.getElementById("navigation").style.width = "0";
+        document.getElementById("body").style.marginLeft= "0";
+        document.body.style.backgroundColor = "white";
+    }
+</script>
+<!---------------- START PAGE BODY ---------------->  
+<div id="body">   
+    <div class="title">   
+        <h1 class="title">LHU Fraternity & Sorority</h2>
+    </div>
 
 
 
+    <!----------------START OF FRATERNITIES TABS---------------->    
+    <h2>Fraternities</h2>
+    <div id="boxes">
+    <!-- list tabs -->
+        <a href="javascript:void(0)" class="Box" onclick="openInfoTab(event, 'ACR')">
+            <div class="ACR">
+                <img src="pictures/ACR.jpeg">
+           </div>
+            </a>
 
+        <a href="javascript:void(0)" class="Box" onclick="openInfoTab(event, 'tab2')">
+            <div>
+                
+               
 
+            </div>
+        </a>
+        <a href="javascript:void(0)" class="Box" onclick="openInfoTab(event, 'KDR')">
+            <div>
+                <img src="pictures/KDR.jpg">
+            </div>
+        </a>
+        <a href="javascript:void(0)" class="Box" onclick="openInfoTab(event, 'PMD')">    
+            <div>
+               <img src="pictures/PMD.jpg">
+            </div>
+        </a>    
+        </div>
+        <!-- info tabs -->
+        <div id="ACR" class="tabContent">
+            <h3>Alpha Chi Rho</h3>
+            <p>hello world</p>
+        </div>
+        <div id="tab2" class="tabContent">
+            <h3>Blank for now</h3>
+            <p>hello </p>
+        </div>
+         <div id="KDR" class="tabContent">
+             <h3>Kappa Delta Rho</h3>
+            <p>hello </p>
+        </div>
+         <div id="PMD" class="tabContent">
+             <h3>Phi Mu Delta</h3>
+            <p>hello </p>
+        </div>
 
+    <!----------------START OF SORORITIES TABS---------------->    
+
+        <h2>Sororities</h2>
+    <div id="boxes">
+
+        <div  class="Box">
+            <p>Alpha Sigma Tau</p>
+        </div>
+        <div  class="Box">
+            <p>Sigma Kappa</p>
+        </div>
+        <div  class="Box">
+            <p>Sigma Sigma Sigma</p>
+        </div>
+        <div  class="Box">
+            <p>Zeta Tau Alpha</p>
+        </div>
+    </div>
+    <script>
+        function openInfoTab(event, tab) {
+            var i, tabContent, tablinks;
+
+            tabContent = document.getElementsByClassName("tabContent");
+            for (i = 0; i < tabContent.length; i++){
+                tabContent[i].style.display="none";
+            }
+            tablinks = document.getElementsByClassName("boxModal");
+            for(i=0; i<tablinks.length;i++){
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(tab).style.display = "block";
+            event.currentTarget.className += " active";
+        } 
+    </script>    
+    <!-- end of boxes -->
+</div><!-- end of Body --> 
 </body>
 </html>
