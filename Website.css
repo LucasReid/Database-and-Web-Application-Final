@@ -1,0 +1,22 @@
+body
+{
+    background-color: black;
+    color: yellow;
+}
+
+div.box
+{
+    border: 2px solid red;
+    height: 200px;
+    width: 200px;
+    float: left;
+    margin: 5px 5px 5px 5px;
+}
+div.buttons
+{
+    /* clear the float so the content appears
+     *  at the bottom */
+    clear: both;
+
+
+}
