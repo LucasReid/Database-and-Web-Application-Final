@@ -1,0 +1,58 @@
+/* these are the properties for each tab. */
+div.tab
+{
+    /* sets the minimum width so that the text
+     *  doesn't get put on two lines. Sets the
+     *  width to 1/4 of the window width. this
+     *  gives room for 4 tabs eventually. Use
+     *  this technique design for narrower
+     *  browser windows. */
+    min-width: 200px;
+    width: 25%;
+
+    /* used to put the tabs on one line */
+    float: left;
+
+    /* keeps the default cursor when over the
+     *  tab. */
+    cursor: default;
+    
+    text-align: center;
+}
+
+/* changes the background color when the cursor
+ *  if over the tab */
+div.tab:hover
+{
+    background-color: red;
+}
+
+/* this is the div containing the list of tabs */
+div.tablist
+{
+    background-color: blue;
+    color: white;
+
+    /* set the element width and min-width ( 4x
+     *  the width of the tabs. Use this technique
+     *  to design for variable browser window
+     *  sizes */
+    width: 100%;
+    min-width: 400px;
+
+    /* this makes the float property of the tab
+     *  applied to the just this div and not the
+     *  entire body. */
+    overflow: hidden;
+}
+section
+{
+    margin-top: 5px;
+    border: 1px solid black;
+
+    /* technique for variable window sizes again */
+    width: 100%;
+    min-width: 400px;
+}
+
+   
