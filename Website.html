@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <link id="currstyle" href="Website.css" type="text/css" rel="Stylesheet" />
+    <meta charset="UTF-8">
+    <title>Lab08 Lwv5032</title>
+</head>
+<body>
+<h2>Changing CSS Properties</h2>
+<div id="b1" class="box">
+    <p>Box 1</p>
+</div>
+<div id="b2" class="box">
+    <p>Box 2</p>
+</div>
+<div class="buttons">
+    <button type="button" onclick="ChangeSize();">Change Box Size</button>
+
+    <button type="button" onclick="ChangeColor();">Change Box Color</button>
+    <button type="button" onclick="ChangeStyleSheet();">Change CSS File</button>
+</div>
+
+
+<script>
+    //fn to change the color of box 2
+    function ChangeColor() {
+        var Element;
+        Element=document.getElementById( "b2" );
+        //change the color
+        Element.style.backgroundColor= "darkgray";
+    }
+
+    // function to change the size of box 1
+    function ChangeSize()
+    {
+        // declare a variable to hold the DOM node
+        var Element;
+
+        // get the element using its id
+        Element = document.getElementById( "b1" );
+
+        // change the height and width CSS properties
+        Element.style.width = "300px";
+        Element.style.height = "300px";
+    }
+    // function to change the current style sheet
+    function ChangeStyleSheet()
+    {
+        // declare a variable to hold the DOM node
+        var Element;
+
+        // get the style sheet link
+        Element = document.getElementById( "currstyle" );
+
+        // set the href attribute to the new CSS file name
+        Element.setAttribute( "href", "Lab08_lwv5032v2.css" );
+    }
+</script>
+</body>
+</html>
