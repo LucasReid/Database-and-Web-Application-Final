@@ -6,6 +6,8 @@ or die ('Error connecting to MySqL Server.');
 <!DOCTYPE html>
 <head>
 <meta charset="UTF-8"></meta>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3.css">
 <link rel="stylesheet" type="text/css" href="mainCSS.css"/>
 <script src="webJS.js" defer></script>
 </head>
@@ -34,7 +36,7 @@ or die ('Error connecting to MySqL Server.');
 <!---------------- START PAGE BODY ---------------->  
 <div id="body">   
     <div class="title">   
-        <h1 class="title">LHU Fraternity & Sorority</h2>
+        <h1 class="title">LHU Fraternity &#38; Sorority</h2>
     </div>
 
 
@@ -42,17 +44,17 @@ or die ('Error connecting to MySqL Server.');
     <!----------------START OF FRATERNITIES TABS---------------->    
     <h2>Fraternities</h2>
     <div id="boxes">
-    <!-- list tabs -->
+    <!-- picture tabs -->
         <a href="javascript:void(0)" class="Box" onclick="openInfoTab(event, 'ACR')">
-            <div class="ACR">
+            <div>
                 <img src="pictures/ACR.jpeg">
            </div>
             </a>
 
-        <a href="javascript:void(0)" class="Box" onclick="openInfoTab(event, 'tab2')">
+        <a href="javascript:void(0)" class="Box" onclick="openInfoTab(event, 'ASP')">
             <div>
                 
-               
+               <img src="pictures/ASP.jpg">
 
             </div>
         </a>
@@ -68,41 +70,69 @@ or die ('Error connecting to MySqL Server.');
         </a>    
         </div>
         <!-- info tabs -->
-        <div id="ACR" class="tabContent">
-            <h3>Alpha Chi Rho</h3>
-            <p>hello world</p>
+        <div id="ACR" style="display:none" class="tabContent w3-panel w3-grey w3-margin-left w3-margin-right w3-leftbar w3-border-black">
+            <h3 class="w3-animate-left">Alpha Chi Rho</h3>
+            <p>TODO: ACR description needed</p>
         </div>
-        <div id="tab2" class="tabContent">
-            <h3>Blank for now</h3>
-            <p>hello </p>
+        <div id="ASP" style="display:none" class="tabContent w3-panel w3-grey w3-margin-left w3-margin-right w3-leftbar w3-border-black">
+            <h3 class="w3-animate-top">Alpha Sigma Phi</h3>
+            <p>TODO: ASP description needed</p>
         </div>
-         <div id="KDR" class="tabContent">
-             <h3>Kappa Delta Rho</h3>
-            <p>hello </p>
+         <div id="KDR" style="display:none" class="tabContent w3-panel w3-grey w3-margin-left w3-margin-right w3-leftbar w3-border-black">
+             <h3 class="w3-animate-top">Kappa Delta Rho</h3>
+            <p>TODO: KDR description needed</p>
         </div>
-         <div id="PMD" class="tabContent">
-             <h3>Phi Mu Delta</h3>
-            <p>hello </p>
+         <div id="PMD" style="display:none" class="tabContent w3-panel w3-grey w3-margin-left w3-margin-right w3-leftbar w3-border-black">
+             <h3 class="w3-animate-right">Phi Mu Delta</h3>
+            <p >TODO: PMD description needed</p>
         </div>
 
     <!----------------START OF SORORITIES TABS---------------->    
 
-        <h2>Sororities</h2>
+        <h2 class="">Sororities</h2>
     <div id="boxes">
+    <!-- picture tabs -->
+        <a href="javascript:void(0)" class="Box" onclick="openInfoTab(event, 'AST')">
+            <div>
+                <img src="pictures/AST.png">
+           </div>
+            </a>
 
-        <div  class="Box">
-            <p>Alpha Sigma Tau</p>
+        <a href="javascript:void(0)" class="Box" onclick="openInfoTab(event, 'SK')">
+            <div>
+                
+               <img src="pictures/SK.jpg">
+
+            </div>
+        </a>
+        <a href="javascript:void(0)" class="Box" onclick="openInfoTab(event, 'SSS')">
+            <div>
+                <img src="pictures/SSS.png">
+            </div>
+        </a>
+        <a href="javascript:void(0)" class="Box" onclick="openInfoTab(event, 'ZTA')">    
+            <div>
+               <img src="pictures/ZTA.jpg">
+            </div>
+        </a>    
         </div>
-        <div  class="Box">
-            <p>Sigma Kappa</p>
+        <!-- info tabs -->
+        <div id="AST" style="display:none" class="tabContent w3-panel w3-grey w3-margin-left w3-margin-right w3-leftbar w3-border-black">
+            <h3 class="w3-animate-left">Alpha Sigma Tau</h3>
+            <p> TODO: AST description needed</p>
         </div>
-        <div  class="Box">
-            <p>Sigma Sigma Sigma</p>
+        <div id="SK" style="display:none" class="tabContent w3-panel w3-grey w3-margin-left w3-margin-right w3-leftbar w3-border-black">
+            <h3 class="w3-animate-top">Sigma Kappa</h3>
+            <p>TODO: SK description needed </p>
         </div>
-        <div  class="Box">
-            <p>Zeta Tau Alpha</p>
+         <div id="SSS" style="display:none" class="tabContent w3-panel w3-grey w3-margin-left w3-margin-right w3-leftbar w3-border-black">
+             <h3 class="w3-animate-top">Sigma Sigma Sigma</h3>
+            <p>TODO: SSS description needed</p>
         </div>
-    </div>
+         <div id="ZTA" style="display:none" class="tabContent w3-panel w3-grey w3-margin-left w3-margin-right w3-leftbar w3-border-black">
+             <h3 class="w3-animate-right">Zeta Tau Alpha</h3>
+            <p >TODO: ZTA description needed</p>
+        </div>
     <script>
         function openInfoTab(event, tab) {
             var i, tabContent, tablinks;
@@ -120,6 +150,10 @@ or die ('Error connecting to MySqL Server.');
         } 
     </script>    
     <!-- end of boxes -->
-</div><!-- end of Body --> 
+</div><!-- end of Body -->
+<footer class="w3-container w3-padding-32 w3-center w3-opacity w3-light-grey w3-small">
+<p class="w3-text-grey">Copyright 2017 &#169; </p>
+    
+</footer>
 </body>
 </html>
