@@ -35,7 +35,7 @@ ini_set("display_errors", 1);
 <a href="memberPage_comp305.php">Membership information</a>
 <br />
 <a href="http://penguin.lhup.edu/~lnr7605/COMP305-master/mainPageTemplate.php">Return to Home Page</a>
-  //NOTE THE FILE NAME CHANGE TO USE PHP
+  
 <footer class="w3-container w3-padding-32 w3-center w3-opacity w3-light-grey w3-small">
 <p class="w3-text-grey">Copyright 2017 &#169; </p>
     
