@@ -4,18 +4,19 @@ ini_set("display_errors", 1);
     require "comp305.inc";
 
     //check for POST Variables
-if ( isset( $_POST["Name_of_Fraternity_or_Sorority"] ))
+if ( isset( $_POST["Member_id"] ))
 {
     // save the user name (frat/soro name) and password(admin id) to the session
-    $_SESSION["FoS_ID"] = $_POST["Fraternity_or_Sorority_ID"];
-    $_SESSION["Admin_id"] = $_POST["Admin_id"];
-    $_SESSION["FoS_name"] = $_POST["Name_of_Fraternity_or_Sorority"];
-    $_SESSION["Type"] = $_POST["Type"];
-    $_SESSION["Description"] = $_POST["Description"];
+    $_SESSION["Member_id"] = $_POST["Member_id"];
+    $_SESSION["FoS_id"] = $_POST["FoS_id"];
+    $_SESSION["Member_name"] = $_POST["Member_name"];
+    $_SESSION["Grad_Year"] = $_POST["Grad_YEar"];
     $_SESSION["Email"] = $_POST["Email"];
+    $_SESSION["Admin_status"] = $_POST["Admin_status"];
+    $_SESSION["Dues_owed"] = $_POST["Dues_owed"];
 
     // load page 1
-    header( "comp305Home.html" );
+    header( "http://penguin.lhup.edu/~lnr7605/COMP305-master/mainPageTemplate.html" );
     exit();
 }
     // set the title
@@ -71,6 +72,42 @@ $result = $conn->query($sql);
 </form>
 </section>
 
+<p align="center">Or Sign in:
+  <table width="400" border="0" align="center" cellpadding="0" cellspacing="1" bgcolor="#CCCCCC">
+  <tr>
+  <form name="form1" method="post" action="http://penguin.lhup.edu/~aap5264/checkLogin.php">
+  <td>
+     <table width="100%" border="0" cellpadding="3" cellspacing="1" bgcolor="#FFFFFF">
+  <tr>
+  <td colspan="3"><strong>Member Login</strong></td>
+  </tr>
+  <tr>
+  <td width="100">Member ID </td>
+  <td width="6">:</td>
+  <td width="294"><input name="Member_id" type="password" id="Member_id"></td>
+  </tr>
+  <tr>
+  <td>Fraternity / Sorority ID</td>
+  <td>:</td>
+  <td><input name="FoS_id" type="int" id="FoS_id"></td>
+  </tr>
+  <tr>
+  <td>&nbsp;</td>
+  <td>&nbsp;</td>
+  <td><input type="submit" name="Submit" value="Login"></td>
+  </tr>
+  </table>
+  </td>
+  </form>
+  </tr>
+  </table>
+</p>
+<br />
+<p>
+<a href="http://penguin.lhup.edu/~aap5264/logOut.php">Log Out</a>
+<a href="http://penguin.lhup.edu/~aap5264/memberPage_comp305.php">Membership Info</a>
+<a href="http://penguin.lhup.edu/~aap5264">Amanda's Homepage</a>
+</p>
 <footer class="w3-container w3-padding-32 w3-center w3-opacity w3-light-grey w3-small">
 <p class="w3-text-grey">Copyright 2017 &#169; </p>
     
