@@ -1,6 +1,5 @@
-
 <?php	
-$db=mysqli_connect('penguin.lhup.edu', 'comp305_grp1', 'Temp!comp305_grp1','comp305_grp1')
+$db=mysqli_connect('willy', 'comp305_grp1', 'Temp!comp305_grp1','comp305_grp1')
 or die ('Error connecting to MySqL Server.');
 ?>
 <!DOCTYPE html>
@@ -18,7 +17,7 @@ or die ('Error connecting to MySqL Server.');
 <span style="font-size:30px;cursor:pointer;float:left" onclick="openNav()">&#9776; open</span>
     <div id="navigation" class="sidenav">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-  <a href="#">Login</a>
+  <a href="logIn.php">Login</a>
 </div>    
 <script>
     function openNav() {
