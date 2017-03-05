@@ -1,6 +1,11 @@
 <?php
 //start session
 session_start();
+//  if(!isset($_SESSION["Member_id"]))
+//  {
+//  header("Location: logIn.php");
+//exit();
+//}
 ini_set("display_errors", 1);
 function DatabaseConnect()
 {
@@ -31,7 +36,7 @@ if ( $Connection->connect_error )
 function InsertNewMemberINFO()
 {
 	// check to see if something was send via POST
-	if ( isset( $_POST["Member_name"] ))
+	if ( isset( $_POST["Member_id"] ))
 	{
 	   echo "<p> Something to Insert</p>\n"; 
 	
@@ -72,6 +77,8 @@ $SQL .= ");";
 		{
  		   // success message
 		    echo "<p>Successfully inserted</p>\n";
+		    $_SESSION['Member_id']='Member_id';
+		    $_SESSION['FoS_id']='FoS_id';
 		}
 		else
 		{
@@ -172,4 +179,5 @@ function WriteRegistrationINFO()
     // close the connection
     $Connection->close();
 }
+
 ?>
