@@ -104,6 +104,16 @@ $result = $conn->query($sql);
   </form>
   </tr>
   </table>
+    <select name="to_user" class="form-control">
+<option value="pick"> </option>
+<?php
+$sql = mysqli_query($conn, "SELECT FoS_name From Fraternities_and_Sororities ORDER BY FoS_name");
+$row = mysqli_num_rows($sql);
+while ($row = mysqli_fetch_array($sql)){
+echo "<option value='". $row['FoS_name'] ."'>" .$row['FoS_name'] ."</option>" ;
+}
+?>
+</select>
 </p>
 <br />
 <p>
