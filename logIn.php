@@ -3,6 +3,9 @@ ini_set("display_errors", 1);
     // include common php routines
     require "comp305.inc";
 
+session.start(); 
+
+
     //check for POST Variables
 if ( isset( $_POST["Member_id"] ))
 {
@@ -75,7 +78,7 @@ $result = $conn->query($sql);
 <p align="center">Or Sign in:
   <table width="400" border="0" align="center" cellpadding="0" cellspacing="1" bgcolor="#CCCCCC">
   <tr>
-  <form name="form1" method="post" action="http://penguin.lhup.edu/~aap5264/checkLogin.php">
+  <form name="form1" method="post" action="http://penguin.lhup.edu/~aap5264/Desktop/comp305-master/checkLogin.php">
   <td>
      <table width="100%" border="0" cellpadding="3" cellspacing="1" bgcolor="#FFFFFF">
   <tr>
@@ -104,9 +107,9 @@ $result = $conn->query($sql);
 </p>
 <br />
 <p>
-<a href="http://penguin.lhup.edu/~aap5264/logOut.php">Log Out</a>
-<a href="http://penguin.lhup.edu/~aap5264/memberPage_comp305.php">Membership Info</a>
-<a href="http://penguin.lhup.edu/~aap5264">Amanda's Homepage</a>
+<a href="http://penguin.lhup.edu/~lnr7605/comp305-master/logOut.php">Log Out</a>
+<a href="http://penguin.lhup.edu/~lnr7605/comp305-master/memberPage_comp305.html">Membership Info</a>
+
 </p>
 <footer class="w3-container w3-padding-32 w3-center w3-opacity w3-light-grey w3-small">
 <p class="w3-text-grey">Copyright 2017 &#169; </p>
