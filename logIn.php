@@ -30,13 +30,16 @@ if ( isset( $_POST["Member_id"] ))
 <meta charset="UTF-8"></meta>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/lib/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-colors-vivid.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-colors-signal.css">
 <link rel="stylesheet" type="text/css" href="mainCSS.css"/>
+<link rel="stylesheet" type="text/css" href="registerModal.css"/>
 <script src="webJS.js" defer></script>
 </head>
 
 <title> Under Construction </title>
 
-<body>
+<body style="background-color:#c9d9ff">
 <?php
 $servername = "willy";
 $username = "comp305_grp1";
@@ -55,73 +58,95 @@ $result = $conn->query($sql);
 
 //WriteRegistrationINFO();
 ?> 
-<h1> Fill out the registration: </h1>
+    <!-------------- START OF MENU -------------->
+    <span style="font-size:30px;cursor:pointer;float:left" onclick="openNav()">&#9776; open</span>
+    <div id="navigation" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <a href="mainPageTemplate.html">Home</a>
+</div>    
+<script>
+    function openNav() {
+        document.getElementById("navigation").style.width = "250px";
+        document.getElementById("body").style.marginLeft = "250px";
+        document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+    }
 
-<section>
+    function closeNav() {
+        document.getElementById("navigation").style.width = "0";
+        document.getElementById("body").style.marginLeft= "0";
+        document.body.style.backgroundColor = "white";
+    }
+</script>
+    <!-------------- START OF BODY -------------->
+<div id="body">   
+    <div class="w3-container w3-padding-8 w3-vivid-greenish-blue w3-xlarge w3-center" style="width:50%; margin-left:auto; margin-right:auto"><p>Member Login</p></div>
+    <div class="w3-containter w3-padding-32 w3-white" style="width:50%; margin-left:auto; margin-right:auto">
+        <form class="w3-container" name="form1" method="post" action="checkLogin.php">
+             <p>
+                <label class="w3-large"> Fraternity / Sorority </label>
+                <input class="w3-input" name="FoS_id" type="int" id="FoS_id">
+            </p>
+            
+            <p>
+                <label class="w3-large"> Member ID </label>
+                <input class="w3-input" name="Member_id" type="password" id="Member_id">
+            </p>
+            <div>
+                <button type="submit" name="Submit" class="w3-button w3-text-center w3-signal-green w3-padding-16 w3-hover-green" style="width:50%;float:left">Login</button>
 
-  <form name="data-input" action="comp305.insert.php" method="POST">
-    <p>Member ID: <input name="Member_id" type="int"  required="true" /></p>
-    <p>Fraternity / Sorority ID: <input name="FoS_id" type="int" required="true" /></p>
-    <p>Member Name: <input name="Member_name" type="text" required="true"/></p>
-    <p>Grad Year: <input name="Grad_Year" type="int" required="true" /></p>
-    <p>Email: <input name="Email" type="text" required="true"/></p>
-    <p>Admin Status: (Y or N)<input name="Admin_status" type="text" required="true" /></p>
-    <p>Dues Owed: <input name="Dues_owed" type="number" required="true" min="0" /></p>
-
+                <button type="button" onclick="document.getElementById('register').style.display='block'" class="w3-button w3-text-center w3-padding-16 w3-hover-blue" style="width:50%; background-color:#4365b7; color:white">Need an Account?</button>
+            </div>
+        </form>
+        <script>
+    var modal = document.getElementById('register');
     
-    <p><button type="submit">Logon</button></p>
-</form>
-</section>
+    window.onclick = function(event){
+        if(event.target==modal){
+            modal.style.display ="none";
+        }
+    }
+</script>
+    </div>
+ 
 
-<p align="center">Or Sign in:
-  <table width="400" border="0" align="center" cellpadding="0" cellspacing="1" bgcolor="#CCCCCC">
-  <tr>
-  <form name="form1" method="post" action="http://penguin.lhup.edu/~aap5264/Desktop/comp305-master/checkLogin.php">
-  <td>
-     <table width="100%" border="0" cellpadding="3" cellspacing="1" bgcolor="#FFFFFF">
-  <tr>
-  <td colspan="3"><strong>Member Login</strong></td>
-  </tr>
-  <tr>
-  <td width="100">Member ID </td>
-  <td width="6">:</td>
-  <td width="294"><input name="Member_id" type="password" id="Member_id"></td>
-  </tr>
-  <tr>
-  <td>Fraternity / Sorority ID</td>
-  <td>:</td>
-  <td><input name="FoS_id" type="int" id="FoS_id"></td>
-  </tr>
-  <tr>
-  <td>&nbsp;</td>
-  <td>&nbsp;</td>
-  <td><input type="submit" name="Submit" value="Login"></td>
-  </tr>
-  </table>
-  </td>
-  </form>
-  </tr>
-  </table>
-    <select name="to_user" class="form-control">
-<option value="pick"> </option>
-<?php
-$sql = mysqli_query($conn, "SELECT FoS_name From Fraternities_and_Sororities ORDER BY FoS_name");
-$row = mysqli_num_rows($sql);
-while ($row = mysqli_fetch_array($sql)){
-echo "<option value='". $row['FoS_name'] ."'>" .$row['FoS_name'] ."</option>" ;
-}
-?>
-</select>
-</p>
-<br />
-<p>
-<a href="http://penguin.lhup.edu/~lnr7605/comp305-master/logOut.php">Log Out</a>
-<a href="http://penguin.lhup.edu/~lnr7605/comp305-master/memberPage_comp305.html">Membership Info</a>
+<div id="register" class="modal">
+    <span onclick="document.getElementById('register').style.display='none'" class="close" title="Close Modal">&times;</span>
+    <form class="modal-content animate" name="data-input" action="comp305.insert.php" method="POST">
+        <div class="container">
+            <label><b class="w3-text-black">Member ID</b></label>
+            <input name="Member_id" type="int"  required="true" placeholder="Example: 000" />
+            
+            <label><b class="w3-text-black">Member Name</b></label>
+            <input name="Member_name" type="text" required="true" placeholder="First and Last name"/>
+            
+            <label><b class="w3-text-black">Graduation Year</b></label>
+            <input name="Grad_Year" type="int" required="true" placeholder="YYYY" />
+            
+            <label><b class="w3-text-black">Email</b></label>
+            <input name="Email" type="text" required="true" placeholder="example@yourmail.com"/>
+            
+            <label><b class="w3-text-black"> Admin Status </b></label>
+            <input name="Admin_status" type="text" required="true" placeholder="Y or N"/>
+            
+            <label><b class="w3-text-black">Dues Owed</b></label>
+            <input name="Dues_owed" type="number" required="true" min="0" />
+            
+            <div>
+                <button type="submit" class="w3-button w3-signal-green w3-hover-green w3-margin-top"style="height:50px;width:100%">Register</button>
+                
+                <button type="button" onclick="document.getElementById('register').style.display='none'" class="w3-margin-top w3-btn w3-vivid-red ">Cancel</button>
+            </div>
+          
+        </div>
+    </form>
 
-</p>
-<footer class="w3-container w3-padding-32 w3-center w3-opacity w3-light-grey w3-small">
-<p class="w3-text-grey">Copyright 2017 &#169; </p>
-    
+</div>
+   
+</div> <!-- end of body -->    
+<footer class="w3-container w3-padding-32 w3-center w3-opacity w3-light-grey w3-small w3-bottom" >
+    <a href="logOut.php">Log Out</a>
+    <a href="memberPage_comp305.php">Membership Info</a>
+    <p class="w3-text-grey">Copyright 2017 &#169; </p>
 </footer>
 </body>
 </html>

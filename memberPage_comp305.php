@@ -45,12 +45,13 @@ else
 
 <title> Under Construction </title>
 <body>
-<h2> 
-<a href="http://penguin.lhup.edu/~aap5264/logOut.php">Log Out</a>
-<br />
-<a href="http://penguin.lhup.edu/~lnr7605/COMP305-master/mainPageTemplate.html"> Back to Homepage</a>
+
+
 
 <footer class="w3-container w3-padding-32 w3-center w3-opacity w3-light-grey w3-small">
+<a href="logOut.php">Log Out</a>
+<br />
+<a href="mainPageTemplate.html"> Back to Homepage</a>
 <p class="w3-text-grey">Copyright 2017 &#169; </p>
     
 </footer>

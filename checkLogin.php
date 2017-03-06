@@ -49,4 +49,4 @@ echo "Wrong Username or Password";
 }
 ?>
 <br />
-<a href="http://penguin.lhup.edu/~aap5264/logIn.php"> Back to Login Page</a>
+<a href="logIn.php"> Back to Login Page</a>
