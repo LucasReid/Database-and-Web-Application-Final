@@ -3,8 +3,6 @@ ini_set("display_errors", 1);
     // include common php routines
     require "comp305.inc";
 
-session.start(); 
-
 
     //check for POST Variables
 if ( isset( $_POST["Member_id"] ))
