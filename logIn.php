@@ -39,7 +39,8 @@ if ( isset( $_POST["Member_id"] ))
 
 <title> Under Construction </title>
 
-<body style="background-color:#c9d9ff">
+<body style="background-color:hsl(0, 70%, 30%)">
+
 <?php
 $servername = "willy";
 $username = "comp305_grp1";
@@ -76,9 +77,9 @@ $result = $conn->query($sql);
         document.getElementById("body").style.marginLeft= "0";
         document.body.style.backgroundColor = "white";
     }
-</script>
+</script>  
     <!-------------- START OF BODY -------------->
-<div id="body">   
+ 
     <div class="w3-container w3-padding-8 w3-vivid-greenish-blue w3-xlarge w3-center" style="width:50%; margin-left:auto; margin-right:auto"><p>Member Login</p></div>
     <div class="w3-containter w3-padding-32 w3-white" style="width:50%; margin-left:auto; margin-right:auto">
         <form class="w3-container" name="form1" method="post" action="checkLogin.php">
@@ -113,8 +114,11 @@ $result = $conn->query($sql);
     <span onclick="document.getElementById('register').style.display='none'" class="close" title="Close Modal">&times;</span>
     <form class="modal-content animate" name="data-input" action="comp305.insert.php" method="POST">
         <div class="container">
-            <label><b class="w3-text-black">Member ID</b></label>
-            <input name="Member_id" type="int"  required="true" placeholder="Example: 000" />
+           <!-- <label><b class="w3-text-black">Member ID</b></label>
+            <input name="Member_id" type="int"  required="false" placeholder="Example: 000" /> -->
+            
+            <label><b class="w3-text-black">FOS ID</b></label>
+            <input name="FoS_id" type="int" required="true" placeholder="1-8" />
             
             <label><b class="w3-text-black">Member Name</b></label>
             <input name="Member_name" type="text" required="true" placeholder="First and Last name"/>

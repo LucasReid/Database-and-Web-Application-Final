@@ -19,7 +19,7 @@ ini_set("display_errors", 1);
 
     // call the insert function
     InsertNewMemberINFO();
-    $_SESSION["Member_id"] = $_POST["Member_id"];
+    //$_SESSION["Member_id"] = $_POST["Member_id"];
     $_SESSION["FoS_id"] = $_POST["FoS_id"];
     $_SESSION["Member_name"]= $_POST["Member_name"];
     $_SESSION["Grad_Year"]= $_POST["Grad_Year"];
@@ -32,12 +32,15 @@ ini_set("display_errors", 1);
 ?>
 
 
-<a href="memberPage_comp305.php">Membership information</a>
-<br />
-<a href="http://penguin.lhup.edu/~lnr7605/COMP305-master/mainPageTemplate.php">Return to Home Page</a>
+
   
 <footer class="w3-container w3-padding-32 w3-center w3-opacity w3-light-grey w3-small">
+<a href="memberPage_comp305.php">Membership information</a>
+<br>
+<a href="mainPageTemplate.html">Return to Home Page</a>
+
 <p class="w3-text-grey">Copyright 2017 &#169; </p>
+
     
 </footer>
 </body>
