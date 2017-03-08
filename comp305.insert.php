@@ -4,7 +4,7 @@ ini_set("display_errors", 1);
     //      it better to use the .inc file extension here.
     //      this way the file can't be accessed by a web
     //      client.
-    require "comp305.inc";
+    require "comp305.php";
 ?>
 <!DOCTYPE html>
 <head>
@@ -15,6 +15,8 @@ ini_set("display_errors", 1);
 <script src="webJS.js" defer></script>
 <title> Member Info</title>
 </head>
+<body style="background-color:white">
+    <a href="logIn.php"><p>Back</p></a>
 <?php
 
     // call the insert function
@@ -28,7 +30,8 @@ ini_set("display_errors", 1);
     $_SESSION["Dues_owed"] = $_POST["Dues_owed"];
 
     //WriteRegistrationINFO();
-  WriteRegistrationINFO();
+    WriteRegistrationINFO();
+  
 ?>
 
 
@@ -38,7 +41,8 @@ ini_set("display_errors", 1);
 <a href="memberPage_comp305.php">Membership information</a>
 <br>
 <a href="mainPageTemplate.html">Return to Home Page</a>
-
+<br>
+<a href="logIn.php">Return to Login</a>
 <p class="w3-text-grey">Copyright 2017 &#169; </p>
 
     

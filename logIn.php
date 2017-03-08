@@ -1,7 +1,7 @@
 <?php
 ini_set("display_errors", 1);
     // include common php routines
-    require "comp305.inc";
+    require "comp305.php";
 
 
     //check for POST Variables
@@ -39,7 +39,7 @@ if ( isset( $_POST["Member_id"] ))
 
 <title> Under Construction </title>
 
-<body style="background-color:hsl(0, 70%, 30%)">
+<body>
 
 <?php
 $servername = "willy";
@@ -69,17 +69,17 @@ $result = $conn->query($sql);
     function openNav() {
         document.getElementById("navigation").style.width = "250px";
         document.getElementById("body").style.marginLeft = "250px";
-        document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+        document.body.style.backgroundColor = "#612929";
     }
 
     function closeNav() {
         document.getElementById("navigation").style.width = "0";
         document.getElementById("body").style.marginLeft= "0";
-        document.body.style.backgroundColor = "white";
+        document.body.style.backgroundColor = "#821717";
     }
 </script>  
     <!-------------- START OF BODY -------------->
- 
+<div id="body">
     <div class="w3-container w3-padding-8 w3-vivid-greenish-blue w3-xlarge w3-center" style="width:50%; margin-left:auto; margin-right:auto"><p>Member Login</p></div>
     <div class="w3-containter w3-padding-32 w3-white" style="width:50%; margin-left:auto; margin-right:auto">
         <form class="w3-container" name="form1" method="post" action="checkLogin.php">
@@ -146,11 +146,12 @@ $result = $conn->query($sql);
 
 </div>
    
-</div> <!-- end of body -->    
-<footer class="w3-container w3-padding-32 w3-center w3-opacity w3-light-grey w3-small w3-bottom" >
+</div><!-- end of body -->   
+<footer class="w3-container w3-padding-32 w3-center w3-opacity w3-bottom w3-light-grey w3-small " >
     <a href="logOut.php">Log Out</a>
     <a href="memberPage_comp305.php">Membership Info</a>
     <p class="w3-text-grey">Copyright 2017 &#169; </p>
 </footer>
+ 
 </body>
 </html>
