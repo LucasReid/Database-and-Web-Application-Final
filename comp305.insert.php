@@ -21,7 +21,7 @@ ini_set("display_errors", 1);
 
     // call the insert function
     InsertNewMemberINFO();
-    //$_SESSION["Member_id"] = $_POST["Member_id"];
+    $_SESSION["Member_id"] = $_POST["Member_id"];
     $_SESSION["FoS_id"] = $_POST["FoS_id"];
     $_SESSION["Member_name"]= $_POST["Member_name"];
     $_SESSION["Grad_Year"]= $_POST["Grad_Year"];
