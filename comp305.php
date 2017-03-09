@@ -65,8 +65,8 @@ function InsertNewMemberINFO()
 $Connection=DatabaseConnect();
 
 // build the insert sql
-$SQL = "Insert into Members( FoS_id, Member_name, Grad_Year, Email, Admin_status, Dues_owed) values (";
-//$SQL .= "\"".$_POST['Member_id']."\"";
+$SQL = "Insert into Members( Member_id, FoS_id, Member_name, Grad_Year, Email, Admin_status, Dues_owed) values (";
+$SQL .= "\"".$_POST['Member_id']."\"";
 $SQL .= ",\"".$_POST['FoS_id']."\""; // this is the issue at hand! the regis. form doesnt ask for it but it wants to insert it can leave null or give them the id already before they reigster.
 $SQL .= ",\"".$_POST['Member_name']."\"";
 $SQL .= ",\"".$_POST['Grad_Year']."\"";
@@ -90,6 +90,7 @@ $SQL .= ");";
 		{
  		   // error message
  		   echo "<p>Error with insert</p>\n";
+			echo mysqli_error();
 		}   
 	}
 	else
