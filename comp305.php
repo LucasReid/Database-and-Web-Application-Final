@@ -82,21 +82,22 @@ $SQL .= ");";
 		if ( $Results )
 		{
  		   // success message
-		    echo "<p>Successfully inserted</p>\n";
+		    echo "<div class='w3-round-small w3-green w3-center w3-padding-16' style='width:75%; margin-left:auto; margin-right:auto'>Successfully inserted</div>\n";
 		    $_SESSION['Member_name']='Member_name';
 		    $_SESSION['FoS_id']='FoS_id';
 		}
 		else
 		{
- 		   // error message
- 		   echo "<p>Error with insert</p>\n";
-			echo mysqli_error();
+            // error message
+            echo "<div class='w3-round-small w3-red w3-center w3-padding-16' style='width:75%; margin-left:auto; margin-right:auto'>Error with insert\n";
+            echo mysqli_error();
+            echo "</div>";
 		}   
 	}
 	else
 	{
 	    // no post data notify the user
-	    echo "<p>Nothing to insert</p>\n";
+	    echo "<p class='w3-centered'>Nothing to insert</p>\n";
 	}
 //close the connection
 //$Connection->close();
