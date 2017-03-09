@@ -5,7 +5,7 @@ ini_set("display_errors", 1);
 
 
     //check for POST Variables
-if ( isset( $_POST["Member_id"] ))
+if ( isset( $_POST["Member_name"] ))
 {
     // save the user name (frat/soro name) and password(admin id) to the session
     $_SESSION["Member_id"] = $_POST["Member_id"];
@@ -114,8 +114,8 @@ $result = $conn->query($sql);
     <span onclick="document.getElementById('register').style.display='none'" class="close" title="Close Modal">&times;</span>
     <form class="modal-content animate" name="data-input" action="comp305.insert.php" method="POST">
         <div class="container">
-           <!-- <label><b class="w3-text-black">Member ID</b></label>
-            <input name="Member_id" type="int"  required="false" placeholder="Example: 000" /> -->
+           <label><b class="w3-text-black">Member ID</b></label>
+            <input name="Member_id" type="int"  required="false" placeholder="Example: 000" /> 
             
             <label><b class="w3-text-black">FOS ID</b></label>
             <input name="FoS_id" type="int" required="true" placeholder="1-8" />
