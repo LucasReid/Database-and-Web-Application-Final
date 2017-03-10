@@ -1,6 +1,6 @@
 //logout page
 <?php
-    require "comp305.inc";
+    require "comp305.php";
     
     // log out
     session_destroy();

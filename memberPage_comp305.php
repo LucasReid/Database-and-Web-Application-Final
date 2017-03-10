@@ -1,10 +1,11 @@
 <?php
 
-  require "comp305.inc";
+  require "comp305.php";
 
   $Title="Member Information";
   $Subtitle="";
 
+print_r($_SESSION);
 //only good if register first
 if($_SESSION['Member_id']!==null)
 {
@@ -29,7 +30,7 @@ else
 {
   echo "You need to login in";
   echo "<br />";
-  echo '<a href="http://penguin.lhup.edu/~aap5264/logIn.php"> Log in</a>';
+  echo '<a href="logIn.php"> Log in</a>';
 }
  WriteRegistrationINFO();
 ?>
@@ -44,7 +45,7 @@ else
 
 
 <title> Under Construction </title>
-<body>
+<body style="background-color:white">
 
 
 
