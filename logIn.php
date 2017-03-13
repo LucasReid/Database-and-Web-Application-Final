@@ -147,7 +147,7 @@ $result = $conn->query($sql);
 </div>
    
 </div><!-- end of body -->   
-<footer class="w3-container w3-padding-32 w3-center w3-opacity w3-bottom w3-light-grey w3-small " >
+<footer class="w3-container w3-padding-32 w3-center w3-opacity w3-light-grey w3-small "  style="width: 100%; bottom:0; position:fixed;">
     <a href="logOut.php">Log Out</a>
     <a href="memberPage_comp305.php">Membership Info</a>
     <p class="w3-text-grey">Copyright 2017 &#169; </p>
