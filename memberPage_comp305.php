@@ -29,12 +29,13 @@ echo " </table>";
 }
 else
 {
-  echo "You need to login in";
+  echo "<p>You need to login in</p>";
   echo "<br />";
   echo '<a href="logIn.php"> Log in</a>';
 }
 echo " <h4 class='w3-center w3-padding-16'> Member Info Table </h4>";
  WriteRegistrationINFO();
+    
 ?>
 <!DOCTYPE html>
 <head>
@@ -48,7 +49,8 @@ echo " <h4 class='w3-center w3-padding-16'> Member Info Table </h4>";
 
 <title> Under Construction </title>
 <body style="background-color:white">
-
+  
+ 
 
 
 <footer class="w3-container w3-padding-32 w3-center w3-opacity w3-light-grey w3-small">

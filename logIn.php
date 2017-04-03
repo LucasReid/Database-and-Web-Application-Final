@@ -17,7 +17,7 @@ if ( isset( $_POST["Member_name"] ))
     $_SESSION["Dues_owed"] = $_POST["Dues_owed"];
 
     // load page 1
-    header( "http://penguin.lhup.edu/~lnr7605/COMP305-master/mainPageTemplate.html" );
+    header( "http://penguin.lhup.edu/~lnr7605/COMP305-master/mainPageTemplate.php" );
     exit();
 }
     // set the title
@@ -58,12 +58,13 @@ $sql = "SELECT * FROM Members";
 $result = $conn->query($sql);
 
 //WriteRegistrationINFO();
-?> 
+?>
+  
     <!-------------- START OF MENU -------------->
     <span style="font-size:30px;cursor:pointer;float:left" onclick="openNav()">&#9776; open</span>
     <div id="navigation" class="sidenav">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-  <a href="mainPageTemplate.html">Home</a>
+  <a href="mainPageTemplate.php">Home</a>
 </div>    
 <script>
     function openNav() {
@@ -80,14 +81,49 @@ $result = $conn->query($sql);
 </script>  
     <!-------------- START OF BODY -------------->
 <div id="body">
+<div class="w3-center">
+ <?php	
+
+if ( isset( $_SESSION["Member_id"] ))
+{
+    // echo the current user
+    echo "   <h5 >Current User: ".$_SESSION["Member_name"]."</h5>\n";
+}
+else
+{
+    // echo no login yet
+    echo "   <h5 >No user logged in</h5>\n";
+    
+}
+?>   
+</div>
     <div class="w3-container w3-padding-8 w3-vivid-greenish-blue w3-xlarge w3-center" style="width:50%; margin-left:auto; margin-right:auto"><p>Member Login</p></div>
     <div class="w3-containter w3-padding-32 w3-white" style="width:50%; margin-left:auto; margin-right:auto">
         <form class="w3-container" name="form1" method="post" action="checkLogin.php">
-             <p>
-                <label class="w3-large"> Fraternity / Sorority </label>
-                <input class="w3-input" name="FoS_id" type="int" id="FoS_id">
-            </p>
-            
+			 <?php
+				$servername = "willy";
+				$username = "comp305_grp1";
+				$password = "Temp!comp305_grp1";
+				$dbname = "comp305_grp1";
+
+					// Create connection
+					$conn = new mysqli($servername, $username, $password, $dbname);
+					// Check connection
+					if ($conn->connect_error) {
+    				die("Connection failed: " . $conn->connect_error);
+					}
+					$results= mysqli_query($conn,"SELECT FoS_id, FoS_name FROM Fraternities_and_Sororities");
+				?>
+					
+					<select class="w3-center w3-panel " style="width:100%; padding:12px" name="FoS_id">
+				<?php
+					while($row = mysqli_fetch_array($results)){
+					echo '<option style="width:100%"
+					value="' .$row['FoS_id']. '">'. $row['FoS_name']. '</option>' ;
+					}
+				?> 
+				</select>          
+            	
             <p>
                 <label class="w3-large"> Member ID </label>
                 <input class="w3-input" name="Member_id" type="password" id="Member_id">
@@ -117,8 +153,32 @@ $result = $conn->query($sql);
            <label><b class="w3-text-black">Member ID</b></label>
             <input name="Member_id" type="int"  required="false" placeholder="Example: 000" /> 
             
-            <label><b class="w3-text-black">FOS ID</b></label>
-            <input name="FoS_id" type="int" required="true" placeholder="1-8" />
+            
+            <?php
+			$servername = "willy";
+			$username = "comp305_grp1";
+			$password = "Temp!comp305_grp1";
+			$dbname = "comp305_grp1";
+				// Create connection
+			$conn = new mysqli($servername, $username, $password, $dbname);
+				// Check connection
+			if ($conn->connect_error) {
+    				die("Connection failed: " . $conn->connect_error);
+			}
+			$results= mysqli_query($conn,"SELECT FoS_id, FoS_name FROM Fraternities_and_Sororities");
+			?>
+					
+		<select class="w3-center w3-panel " style="width:100%; padding:12px" name="FoS_id">
+		<?php
+			while($row = mysqli_fetch_array($results)){
+				echo '<option style="width:100%"
+				value="' .$row['FoS_id']. '">'. $row['FoS_name']. '</option>' ;
+			}
+		?> 
+		</select>  
+            
+           <!-- <label><b class="w3-text-black">FOS ID</b></label>
+            <input name="FoS_id" type="int" required="true" placeholder="1-8" />-->
             
             <label><b class="w3-text-black">Member Name</b></label>
             <input name="Member_name" type="text" required="true" placeholder="First and Last name"/>
@@ -147,7 +207,7 @@ $result = $conn->query($sql);
 </div>
    
 </div><!-- end of body -->   
-<footer class="w3-container w3-padding-32 w3-center w3-opacity w3-light-grey w3-small "  style="width: 100%; bottom:0; position:fixed;">
+<footer class="w3-container w3-padding-32 w3-center w3-opacity w3-light-grey w3-small " style="width: 100%; bottom:0; position:fixed;">
     <a href="logOut.php">Log Out</a>
     <a href="memberPage_comp305.php">Membership Info</a>
     <p class="w3-text-grey">Copyright 2017 &#169; </p>

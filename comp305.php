@@ -6,7 +6,7 @@ session_start();
 //  header("Location: logIn.php");
 //exit();
 //}
-ini_set("display_errors", 1);
+//ini_set("display_errors", 1);
 function DatabaseConnect()
 {
 //set the connection info  willy is the server name on the penguin network

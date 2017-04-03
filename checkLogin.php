@@ -15,6 +15,8 @@ mysql_select_db("$db_name")or die("cannot select DB");
 $myusername=$_POST['Member_id'];
 $mypassword=$_POST['FoS_id'];
 
+
+
 // To protect MySQL injection (more detail about MySQL injection)
 $myusername = stripslashes($myusername);
 $mypassword = stripslashes($mypassword);
@@ -51,8 +53,10 @@ header("location:memerPage_comp305.php");
 **/
 }
 else {
-echo "Wrong Username or Password";
-
+    
+echo "Wrong Username or Password<br>";
+echo "Member_id: ".$myusername."<br>";
+echo "FoS_id: ".$mypassword."<br>";
 }
 ?>
 <br />
