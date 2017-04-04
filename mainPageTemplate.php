@@ -9,8 +9,14 @@
 </head>
 
 <title> Under Construction </title>
-<body>
+<body style="min-width:1000">
 <?php	
+$connec = mysqli_connect('willy','comp305_grp1','Temp!comp305_grp1','comp305_grp1');
+if(!$connec)
+{
+   $output = "unable to connect";
+   exit();
+}
 require "comp305.php";
 if ( isset( $_SESSION["Member_id"] ))
 {
@@ -79,58 +85,134 @@ else
             </div>
         </a>    
         </div>
+        
+        
         <!-- info tabs -->
+        <!--ACR-->
         <div id="ACR" style="display:none" class="tabContent w3-panel w3-grey w3-margin-left w3-margin-right w3-leftbar w3-border-black">
         <h3 class="w3-animate-left">Alpha Chi Rho</h3>
-        <p>Alpha Chi Rho is a national
-            men's collegiate fraternity whose
-            The National Fraternity of Alpha Chi Rho
-            Cultivating Men of Word and Deed
-            purpose is to enhance the lifelong
-            intellectual, moral and social
-            development of our members
-            through the guidance of our
-            Landmarks.</p>
+        <p>
+        <?php 
+				 $sql2="select Description FROM Fraternities_and_Sororities where FoS_id=1;";
+				 $Results2=$connec->query($sql2);
+				 if ( $Results2 )
+    		{
+        // loop through the results the fetch_row method returns an array of the column
+        //      data - one item in the array for each column in the select statement.
+        //      the statement in the while will evaluate to false when there are no more rows
+        while( $Row = $Results2->fetch_row() )
+        {
+        		
+            for( $i=0; $i<count($Row); $i++ )
+            {
+            	echo "<p>".$Row[$i]."</p>";
+            }
+        }
+        // stop the table HTML
+        echo "</table>\n";
+    	}
+    	else
+    	{
+        echo "<p>No results returned from the query</p>\n";// no results returned
+    	}       
+        ?>
+        	</p>
         <p> <a href="https://www.facebook.com/AXPLHU/" class="fa fa-facebook"></a>
             </p>
     </div>
+    
+    	<!--ASP-->
         <div id="ASP" style="display:none" class="tabContent w3-panel w3-grey w3-margin-left w3-margin-right w3-leftbar w3-border-black">
         <h3 class="w3-animate-top">Alpha Sigma Phi</h3>
-        <p>Found at Yale University on December 6,
-            1845, Alpha Sigma Phi continues to be the
-            organization of choice for collegiate men
-            founded on the values of Silence,
-            Charity, Purity, Honor, and Patriotism. </p>
+        <p> <?php 
+				 $sql3="select Description FROM Fraternities_and_Sororities where FoS_id=2;";
+				 $Results3=$connec->query($sql3);
+				 if ( $Results3 )
+    		{
+        // loop through the results the fetch_row method returns an array of the column
+        //      data - one item in the array for each column in the select statement.
+        //      the statement in the while will evaluate to false when there are no more rows
+        while( $Row = $Results3->fetch_row() )
+        {
+        		
+            for( $i=0; $i<count($Row); $i++ )
+            {
+            	echo "<p>".$Row[$i]."</p>";
+            }
+        }
+        // stop the table HTML
+        echo "</table>\n";
+    	}
+    	else
+    	{
+        echo "<p>No results returned from the query</p>\n";// no results returned
+    	}       
+        ?> </p>
         <p>
             <a href="https://www.facebook.com/Alpha-Sigma-Phi-Delta-Nu-Chapter-Lock-Haven-University-of-PA-10150122059435160/" class="fa fa-facebook"></a>
             </p>
     </div>
+    
+    	<!--KDR-->
          <div id="KDR" style="display:none" class="tabContent w3-panel w3-grey w3-margin-left w3-margin-right w3-leftbar w3-border-black w3-highlight-yellow">
         <h3 class="w3-animate-top">Kappa Delta Rho</h3>
-        <p>  Kappa Delta Rho was founded on May 17, 1905 at Middlebury College in Middlebury, VT. 
-    Since then we have grown to 25,000+ initiated members and have 37 active chapters across the country. 
-    These individuals have accepted the challenge of Kappa Delta Rho to strive to place Honor Above All Things in their daily lives by:
-    Embracing the principles and spirit of the Kappa Delta Rho Gentleman, treating all those they encounter with dignity and respect;
-    Working diligently in the pursuit of their education, understanding that they are students first and that the quest for 
-    knowledge is an endeavor which lasts a lifetime;
-    Meeting all of their obligations to the Fraternity in a timely manner, as to ensure that they 
-    are doing their share and they are not a burden to their brothers;
-    Engaging in the service of mankind, not for the praise or recognition that such service may bring, 
-    but because it is the right thing to do,
-    Serving as their brother’s keeper, holding one another accountable for their actions; and
-    Supporting their Alma mater, that she may regard Kappa Delta Rho as a partner in the development of her students.
-</p>
-<p>
+        <p><?php 
+		$sql4="select Description FROM Fraternities_and_Sororities where FoS_id=3;";
+		$Results4=$connec->query($sql4);
+		if ( $Results4 )
+    		{
+       			// loop through the results the fetch_row method returns an array of the column
+       			//      data - one item in the array for each column in the select statement.
+       			//      the statement in the while will evaluate to false when there are no more rows
+        		while( $Row = $Results4->fetch_row() )
+        		{
+        		
+           			for( $i=0; $i<count($Row); $i++ )
+            			{
+            				echo "<p>".$Row[$i]."</p>";
+            			}
+        		}
+        		// stop the table HTML
+        		echo "</table>\n";
+    			}
+    			else
+    			{
+        			echo "<p>No results returned from the query</p>\n";// no results returned
+    		}       
+        ?>
+	</p>
+	<p>
              <a href="https://www.facebook.com/kappadeltarhoaa/" class="fa fa-facebook"></a>
              </p>
     </div>
+    
+    	<!--PMD-->
         <div id="PMD" style="display:none" class="tabContent w3-panel w3-grey w3-margin-left w3-margin-right w3-leftbar w3-border-black">
         <h3 class="w3-animate-right">Phi Mu Delta</h3>
-        <p >Founded nationally in 1918 as the first national fraternity to accept men 
-        regardless of their race or religious affiliation Phi Mu Delta has as its mission, 
-        to provide a positive fraternity experience for today's college man, encouraging 
-        high personal standards, morally, mentally, and spiritually, and, to help its members 
-        live the ideals of our founders: democracy, brotherhood and service.
+        <p ><?php 
+				 $sql5="select Description FROM Fraternities_and_Sororities where FoS_id=4;";
+				 $Results5=$connec->query($sql5);
+				 if ( $Results5 )
+    		{
+        // loop through the results the fetch_row method returns an array of the column
+        //      data - one item in the array for each column in the select statement.
+        //      the statement in the while will evaluate to false when there are no more rows
+        while( $Row = $Results5->fetch_row() )
+        {
+        		
+            for( $i=0; $i<count($Row); $i++ )
+            {
+            	echo "<p>".$Row[$i]."</p>";
+            }
+        }
+        // stop the table HTML
+        echo "</table>\n";
+    	}
+    	else
+    	{
+        echo "<p>No results returned from the query</p>\n";// no results returned
+    	}       
+        ?>
         </p>
         <p>
             <a href="https://www.facebook.com/pmdmuzeta/" class="fa fa-facebook"></a>
@@ -167,56 +249,130 @@ else
         </a>    
         </div>
         <!-- info tabs -->
+        <!--AST-->
        <div id="AST" style="display:none" class="tabContent w3-panel w3-grey w3-margin-left w3-margin-right w3-leftbar w3-border-black w3-bold w3-black">
         <h3 class="w3-animate-left">Alpha Sigma Tau</h3>
-        <p>For more than 115 years,
-            Alpha Sigma Tau has empowered women to excel in life.
-            The Sorority invests in women by instilling the skills
-            necessary to navigate life, and inspires members to
-            enrich their own lives and the lives of others.</p>
+        <p><?php 
+				 $sql6="select Description FROM Fraternities_and_Sororities where FoS_id=5;";
+				 $Results6=$connec->query($sql6);
+				 if ( $Results6 )
+    		{
+        // loop through the results the fetch_row method returns an array of the column
+        //      data - one item in the array for each column in the select statement.
+        //      the statement in the while will evaluate to false when there are no more rows
+        while( $Row = $Results6->fetch_row() )
+        {
+        		
+            for( $i=0; $i<count($Row); $i++ )
+            {
+            	echo "<p>".$Row[$i]."</p>";
+            }
+        }
+        // stop the table HTML
+        echo "</table>\n";
+    	}
+    	else
+    	{
+        echo "<p>No results returned from the query</p>\n";// no results returned
+    	}       
+        ?></p>
         <p>
            <a href="https://www.facebook.com/Lock-Haven-Alpha-Sigma-Tau-289739461137754/" class="fa fa-facebook"></a>
            </p>
     </div>
+    
+    <!--SK-->
     <div id="SK" style="display:none" class="tabContent w3-panel w3-grey w3-margin-left w3-margin-right w3-leftbar w3-border-black">
         <h3 class="w3-animate-top">Sigma Kappa</h3>
-        <p>The purpose of Sigma Kappa Sorority
-            is to provide women lifelong opportunities and support
-            for social, intellectual and spiritual development
-            by bringing women together to positively impact our
-            communities.
+        <p><?php 
+				 $sql7="select Description FROM Fraternities_and_Sororities where FoS_id=6;";
+				 $Results7=$connec->query($sql7);
+				 if ( $Results7 )
+    		{
+        // loop through the results the fetch_row method returns an array of the column
+        //      data - one item in the array for each column in the select statement.
+        //      the statement in the while will evaluate to false when there are no more rows
+        while( $Row = $Results7->fetch_row() )
+        {
+        		
+            for( $i=0; $i<count($Row); $i++ )
+            {
+            	echo "<p>".$Row[$i]."</p>";
+            }
+        }
+        // stop the table HTML
+        echo "</table>\n";
+    	}
+    	else
+    	{
+        echo "<p>No results returned from the query</p>\n";// no results returned
+    	}       
+        ?>
         </p>
         <p>
-        <a href="https://www.facebook.com/SigmaKappaLHU/" class="fa fa-facebook"></a>
+        	<a href="https://www.facebook.com/SigmaKappaLHU/" class="fa fa-facebook"></a>
         </p>
     </div>
+    
+    <!--SSS-->
     <div id="SSS" style="display:none" class="tabContent w3-panel w3-grey w3-margin-left w3-margin-right w3-leftbar w3-border-black w3-bold">
         <h3 class="w3-animate-top">Sigma Sigma Sigma</h3>
-        <p>Sigma Sigma Sigma was founded by a group of eight women on
-            April 20, 1898 in Farmville, Virginia. Margaret Lee Batten,
-            Louise Marie Davis, Martha Trent Featherston, Isabella Merrick,
-            Sallie Jackson Michie, Lelia Scott, Elizabeth Watkins and
-            Lucy Wright set out to establish a sisterhood based on the
-            bond of friendship. Founded at the State Female Normal School
-            (now Longwood University), Tri Sigma became part of the group of
-            sororities known as the “Farmville Four” – four Greek letter sororities
-            established at the State Female Normal School between 1898 and 1901.
-            The Charter of Incorporation was granted by the Commonwealth of Virginia
-            on February 12, 1903, and Tri Sigma adopted its first constitution in April 1903.
-        </p>
+        <p><?php 
+				 $sql8="select Description FROM Fraternities_and_Sororities where FoS_id=7;";
+				 $Results8=$connec->query($sql8);
+				 if ( $Results8 )
+    		{
+        // loop through the results the fetch_row method returns an array of the column
+        //      data - one item in the array for each column in the select statement.
+        //      the statement in the while will evaluate to false when there are no more rows
+        while( $Row = $Results8->fetch_row() )
+        {
+        		
+            for( $i=0; $i<count($Row); $i++ )
+            {
+            	echo "<p>".$Row[$i]."</p>";
+            }
+        }
+        // stop the table HTML
+        echo "</table>\n";
+    	}
+    	else
+    	{
+        echo "<p>No results returned from the query</p>\n";// no results returned
+    	}       
+        ?></p>
         <p>
         <a href="https://www.facebook.com/SigmaSigmaSigmaAlphaRho/" class="fa fa-facebook"></a>
         </p>
     </div>
+    
+    <!--ZTA-->
     <div id="ZTA" style="display:none" class="tabContent w3-panel w3-grey w3-margin-left w3-margin-right w3-leftbar w3-border-black w3-bold">
         <h3 class="w3-animate-right">Zeta Tau Alpha</h3>
-        <p >To make a difference in the lives of our members
-            by developing the potential of each individual
-            through innovative programming, which emphasizes
-            leadership development, service to others, academic
-            achievement and continued personal growth for women,
-            with a commitment to friendship and the future based
-            on the sisterhood, values and traditions of the past.</p>
+        <p ><?php 
+				 $sql9="select Description FROM Fraternities_and_Sororities where FoS_id=8;";
+				 $Results9=$connec->query($sql9);
+				 if ( $Results9 )
+    		{
+        // loop through the results the fetch_row method returns an array of the column
+        //      data - one item in the array for each column in the select statement.
+        //      the statement in the while will evaluate to false when there are no more rows
+        while( $Row = $Results9->fetch_row() )
+        {
+        		
+            for( $i=0; $i<count($Row); $i++ )
+            {
+            	echo "<p>".$Row[$i]."</p>";
+            }
+        }
+        // stop the table HTML
+        echo "</table>\n";
+    	}
+    	else
+    	{
+        echo "<p>No results returned from the query</p>\n";// no results returned
+    	}       
+        ?></p>
         <p>
         <a href="https://www.facebook.com/LHUPZTA/" class="fa fa-facebook"></a>
         </p>
@@ -237,11 +393,11 @@ else
         } 
     </script>    
     <!-- end of boxes -->
-</div><!-- end of Body -->
-<footer class="w3-container w3-padding-32 w3-center w3-opacity w3-light-grey w3-small">
+
+<div class="w3-container w3-padding-32 w3-center w3-opacity w3-light-grey w3-small w3-block">
 <p class="w3-text-grey">Copyright 2017 &#169; </p>
     
-</footer>
-
+</div>
+</div><!-- end of Body -->
 </body>
 </html>

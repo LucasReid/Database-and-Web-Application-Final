@@ -56,7 +56,7 @@ echo " <h4 class='w3-center w3-padding-16'> Member Info Table </h4>";
 <footer class="w3-container w3-padding-32 w3-center w3-opacity w3-light-grey w3-small">
 <a href="logOut.php">Log Out</a>
 <br />
-<a href="mainPageTemplate.html"> Back to Homepage</a>
+<a href="mainPageTemplate.php"> Back to Homepage</a>
 <p class="w3-text-grey">Copyright 2017 &#169; </p>
     
 </footer>
