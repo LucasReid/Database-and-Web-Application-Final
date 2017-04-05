@@ -1,11 +1,7 @@
 <?php
 //start session
 session_start();
-//  if(!isset($_SESSION["Member_id"]))
-//  {
-//  header("Location: logIn.php");
-//exit();
-//}
+
 //ini_set("display_errors", 1);
 function DatabaseConnect()
 {
