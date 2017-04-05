@@ -1,39 +1,52 @@
 <?php
 
   require "comp305.php";
-
-  $Title="Member Information";
-  $Subtitle="";
-
-//only good if register first
-if($_SESSION['Member_id']!==null)
+// check for a user
+if ( isset( $_SESSION["Member_id"] ))
 {
-echo " <a href='logIn.php'>Back</a>";    
-echo " <h2 class='w3-center w3-padding-32 w3-text-white w3-xlarge' style='background-color:#821717'> Welcome ".$_SESSION["Member_name"]." </h2>";
-echo " <table class='w3-table-all w3-centered' style='width:75%; margin-left:auto;margin-right:auto'>";
-echo " <th> Current Member ID";
-echo " <th> Current Fraternity / Sorority ID ";
-echo " <th> Member Name "; 
-echo " <th> Grad Year ";
-echo " <th> Email "; 
-echo " <th> Admin Status "; 
-echo " <th> Dues </th>"; 
-echo " <tr><td>".$_SESSION["Member_id"]."</td>";
-echo " <td>".$_SESSION["FoS_id"]."</td>";
-echo " <td>".$_SESSION["Member_name"]."</td>"; 
-echo " <td>".$_SESSION["Grad_Year"]."</td>";     
-echo " <td>".$_SESSION["Email"]."</td>"; 
-echo " <td>".$_SESSION["Admin_status"]."</td>"; 
-echo " <td>".$_SESSION["Dues_owed"]."</td></tr>";     
-echo " </table>";    
+    // echo the current user
+    echo "   <p>Current User: ".$_SESSION["Member_name"]."</p>\n";
+    echo "   <p><a href=\"logOut.php\">Log Out</a> when finished</p>\n";
 }
 else
 {
-  echo "<p>You need to login in</p>";
-  echo "<br />";
-  echo '<a href="logIn.php"> Log in</a>';
+    // echo no login yet
+    echo "   <p>No user logged in</p>\n";
+    echo "   <p>Please <a href=\"logIn.php\">Log in</a></p>\n";
 }
-echo " <h4 class='w3-center w3-padding-16'> Member Info Table </h4>";
+	echo "</div>\n";
+  $Title="Member Information";
+  $Subtitle="";
+
+//print_r($_SESSION);
+//only good if register first
+if($_SESSION['Member_name']!==null)
+{
+echo " <p>\n";
+echo "  Current Member ID: ".$_SESSION["Member_id"]."\n";
+echo " <br />";
+echo "  Current Fraternity / Sorority ID: ".$_SESSION["FoS_id"]."\n";
+echo " <br />";
+echo "  Current Member Name: ".$_SESSION["Member_name"]."\n";
+echo " <br />";
+echo "  Current Grad Year: ".$_SESSION["Grad_Year"]."\n";
+echo " <br />";
+echo "  Current Email: ".$_SESSION["Email"]."\n";
+echo " <br />";
+echo "  Current Admin Status: ".$_SESSION["Admin_status"]."\n";
+echo " <br />";
+echo "  Current Dues: ".$_SESSION["Dues_owed"]."\n";
+echo " <br />";
+echo " </p>";
+
+//$sql2="INSERT INTO 'Admin_Log' ('Login_id, 'Member_id', 'FoS_id' 'Login_time) VALUES ('',".$_SESSION["Member_id"].",".$_SESSION["FoS_id"].",NOW());";
+//$result=mysqli_query(DatabaseConnect(),$sql2);
+}
+else
+{
+  echo "<center>You are not logged in</center>";
+
+}
  WriteRegistrationINFO();
     
 ?>
