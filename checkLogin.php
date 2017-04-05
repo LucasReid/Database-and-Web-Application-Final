@@ -43,14 +43,7 @@ $_SESSION['Grad_Year']=$row['Grad_Year'];
 $_SESSION['Email']=$row['Email'];
 $_SESSION['Admin_status']=$row['Admin_status'];
 $_SESSION['Dues_owed']=$row['Dues_owed'];
-header("Location: memberPage_comp305.php");
-
-
-
-/**session_register("myusername");
-session_register("mypassword");
-header("location:memerPage_comp305.php");
-**/
+header("Location: UserPage.php"); //USER PAGE FILE NEEDS CHANGED TO PHP IN ORDER TO RUN IT 
 }
 else {
     
