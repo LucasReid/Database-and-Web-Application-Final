@@ -6,6 +6,6 @@
     session_destroy();
     
     // go back to logon page
-    header( "Location: logIn.php" );
+    header( "Location: mainPageTemplate.php" );
 
 ?>

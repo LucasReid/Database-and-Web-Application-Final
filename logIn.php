@@ -27,11 +27,12 @@ if ( isset( $_POST["Member_name"] ))
 
 <!DOCTYPE html>
 <head>
-<meta charset="UTF-8"></meta>
+<meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/lib/w3.css">
 <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-colors-vivid.css">
-<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-colors-signal.css">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-red.css">
 <link rel="stylesheet" type="text/css" href="mainCSS.css"/>
 <link rel="stylesheet" type="text/css" href="registerModal.css"/>
 <script src="webJS.js" defer></script>
@@ -39,7 +40,7 @@ if ( isset( $_POST["Member_name"] ))
 
 <title> Under Construction </title>
 
-<body>
+<body class="w3-theme-l5">
 
 <?php
 $servername = "willy";
@@ -61,43 +62,44 @@ $result = $conn->query($sql);
 ?>
   
     <!-------------- START OF MENU -------------->
-    <span style="font-size:30px;cursor:pointer;float:left" onclick="openNav()">&#9776; open</span>
     <div id="navigation" class="sidenav">
-  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-  <a href="mainPageTemplate.php">Home</a>
-</div>    
-<script>
-    function openNav() {
-        document.getElementById("navigation").style.width = "250px";
-        document.getElementById("body").style.marginLeft = "250px";
-        document.body.style.backgroundColor = "#612929";
-    }
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="mainPageTemplate.php">Home</a>
+        <?php	
+        if ( isset( $_SESSION["Member_id"]))
+        {
+        // echo the current user
+            echo "<a href='UserPage.php'>Member Page</a>";
+            echo "<a href='logOut.php'>Log Out</a>\n";
+        }
+        ?>
+    </div>    
+    <script>
+        function openNav() {
+            document.getElementById("navigation").style.width = "250px";
+            document.getElementById("body").style.marginLeft = "250px";
 
-    function closeNav() {
-        document.getElementById("navigation").style.width = "0";
-        document.getElementById("body").style.marginLeft= "0";
-        document.body.style.backgroundColor = "#821717";
-    }
-</script>  
+        }
+
+        function closeNav() {
+            document.getElementById("navigation").style.width = "0";
+            document.getElementById("body").style.marginLeft= "0";
+        }
+    </script>  
     <!-------------- START OF BODY -------------->
 <div id="body">
-<div class="w3-center">
- <?php	
-
-if ( isset( $_SESSION["Member_id"] ))
-{
-    // echo the current user
-    echo "   <h5 >Current User: ".$_SESSION["Member_name"]."</h5>\n";
-}
-else
-{
-    // echo no login yet
-    echo "   <h5 >No user logged in</h5>\n";
-    
-}
-?>   
+    <div class="w3-container w3-padding-8 w3-theme-d5" style="margin-top:0px; margin-bottom:0px">
+        
+    <h1 class="w3-center">LHU GREEK Login / Register</h1>
+    <?php	
+        if ( isset( $_SESSION["Member_id"]))
+        {
+        // echo the current user
+            echo "   <h5 class='w3-center'>Current User: ".$_SESSION["Member_name"]."</h5>\n";
+        }
+    ?> 
+    <span style="font-size:30px;cursor:pointer;margin-left:0px" onclick="openNav()">&#9776; open</span> 
 </div>
-    <div class="w3-container w3-padding-8 w3-vivid-greenish-blue w3-xlarge w3-center" style="width:50%; margin-left:auto; margin-right:auto"><p>Member Login</p></div>
     <div class="w3-containter w3-padding-32 w3-white" style="width:50%; margin-left:auto; margin-right:auto">
         <form class="w3-container" name="form1" method="post" action="checkLogin.php">
 			 <?php
@@ -115,7 +117,8 @@ else
 					$results= mysqli_query($conn,"SELECT FoS_id, FoS_name FROM Fraternities_and_Sororities");
 				?>
 					
-					<select class="w3-center w3-panel " style="width:100%; padding:12px" name="FoS_id">
+					<select class="w3-center w3-panel "style="width:100%; padding:12px" name="FoS_id">
+					<option selected="selected">Choose your greek</option>
 				<?php
 					while($row = mysqli_fetch_array($results)){
 					echo '<option style="width:100%"
@@ -129,7 +132,7 @@ else
                 <input class="w3-input" name="Member_id" type="password" id="Member_id">
             </p>
             <div>
-                <button type="submit" name="Submit" class="w3-button w3-text-center w3-signal-green w3-padding-16 w3-hover-green" style="width:50%;float:left">Login</button>
+                <button type="submit" name="Submit" class="w3-button w3-text-center w3-padding-16 w3-hover-green" style="width:50%;float:left; background-color:#008F00; color:white">Login</button>
 
                 <button type="button" onclick="document.getElementById('register').style.display='block'" class="w3-button w3-text-center w3-padding-16 w3-hover-blue" style="width:50%; background-color:#4365b7; color:white">Need an Account?</button>
             </div>
@@ -150,10 +153,7 @@ else
     <span onclick="document.getElementById('register').style.display='none'" class="close" title="Close Modal">&times;</span>
     <form class="modal-content animate" name="data-input" action="comp305.insert.php" method="POST">
         <div class="container">
-           <label><b class="w3-text-black">Member ID</b></label>
-            <input name="Member_id" type="int"  required="false" placeholder="Example: 000" /> 
-            
-            
+  
             <?php
 			$servername = "willy";
 			$username = "comp305_grp1";
@@ -171,14 +171,12 @@ else
 		<select class="w3-center w3-panel " style="width:100%; padding:12px" name="FoS_id">
 		<?php
 			while($row = mysqli_fetch_array($results)){
-				echo '<option style="width:100%"
+				echo '<option style="width:100%; size:40px" 
 				value="' .$row['FoS_id']. '">'. $row['FoS_name']. '</option>' ;
 			}
 		?> 
 		</select>  
-            
-           <!-- <label><b class="w3-text-black">FOS ID</b></label>
-            <input name="FoS_id" type="int" required="true" placeholder="1-8" />-->
+           
             
             <label><b class="w3-text-black">Member Name</b></label>
             <input name="Member_name" type="text" required="true" placeholder="First and Last name"/>
@@ -191,9 +189,7 @@ else
             
             <label><b class="w3-text-black"> Admin Status </b></label>
             <input name="Admin_status" type="text" required="true" placeholder="Y or N"/>
-            
-            <label><b class="w3-text-black">Dues Owed</b></label>
-            <input name="Dues_owed" type="number" required="true" min="0" />
+
             
             <div>
                 <button type="submit" class="w3-button w3-signal-green w3-hover-green w3-margin-top"style="height:50px;width:100%">Register</button>
@@ -207,11 +203,5 @@ else
 </div>
    
 </div><!-- end of body -->   
-<footer class="w3-container w3-padding-32 w3-center w3-opacity w3-light-grey w3-small " style="width: 100%; bottom:0; position:fixed;">
-    <a href="logOut.php">Log Out</a>
-    <a href="memberPage_comp305.php">Membership Info</a>
-    <p class="w3-text-grey">Copyright 2017 &#169; </p>
-</footer>
- 
 </body>
 </html>

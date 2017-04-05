@@ -16,7 +16,6 @@ $myusername=$_POST['Member_id'];
 $mypassword=$_POST['FoS_id'];
 
 
-
 // To protect MySQL injection (more detail about MySQL injection)
 $myusername = stripslashes($myusername);
 $mypassword = stripslashes($mypassword);
@@ -24,13 +23,18 @@ $myusername = mysql_real_escape_string($myusername);
 $mypassword = mysql_real_escape_string($mypassword);
 
 $sql="SELECT Member_id, FoS_id, Member_name, Grad_Year, Email, Admin_status,Dues_owed FROM $tbl_name WHERE Member_id='$myusername' and FoS_id='$mypassword'";
+$adminResult = mysql_query($admin);
+
 $result=mysql_query($sql);
-
+$result2=mysql_query($sql);
 // Mysql_num_row is counting table row
-$count=mysql_num_rows($result);
 
+
+$count=mysql_num_rows($result);
+$admin = mysql_fetch_array($result2);
 $row=mysql_fetch_assoc($result);
 // If result matched $myusername and $mypassword, table row must be 1 row
+$_SESSION['Admin_status'] = $admin['Admin_status'];
 
 if($count==1){
 
@@ -43,13 +47,23 @@ $_SESSION['Grad_Year']=$row['Grad_Year'];
 $_SESSION['Email']=$row['Email'];
 $_SESSION['Admin_status']=$row['Admin_status'];
 $_SESSION['Dues_owed']=$row['Dues_owed'];
-header("Location: UserPage.php"); //USER PAGE FILE NEEDS CHANGED TO PHP IN ORDER TO RUN IT 
+
+/**session_register("myusername");
+session_register("mypassword");
+header("location:memerPage_comp305.php");
+**/
 }
 else {
     
 echo "Wrong Username or Password<br>";
 echo "Member_id: ".$myusername."<br>";
 echo "FoS_id: ".$mypassword."<br>";
+
+}
+if($admin['Admin_status']=='Y'){
+    header("Location: adminPage.php");
+}else if($admin['Admin_status']=='N'){
+    header("Location: UserPage.php");
 }
 ?>
 <br />

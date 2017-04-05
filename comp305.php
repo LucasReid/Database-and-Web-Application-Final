@@ -1,7 +1,11 @@
 <?php
 //start session
 session_start();
-
+//  if(!isset($_SESSION["Member_id"]))
+//  {
+//  header("Location: logIn.php");
+//exit();
+//}
 //ini_set("display_errors", 1);
 function DatabaseConnect()
 {
@@ -61,14 +65,14 @@ function InsertNewMemberINFO()
 $Connection=DatabaseConnect();
 
 // build the insert sql
-$SQL = "Insert into Members( Member_id, FoS_id, Member_name, Grad_Year, Email, Admin_status, Dues_owed) values (";
-$SQL .= "\"".$_POST['Member_id']."\"";
-$SQL .= ",\"".$_POST['FoS_id']."\""; // this is the issue at hand! the regis. form doesnt ask for it but it wants to insert it can leave null or give them the id already before they reigster.
+$SQL = "Insert into Members( FoS_id, Member_name, Grad_Year, Email, Admin_status) values (";
+//$SQL .= "\"".$_POST['Member_id']."\"";
+$SQL .= "\"".$_POST['FoS_id']."\""; // this is the issue at hand! the regis. form doesnt ask for it but it wants to insert it can leave null or give them the id already before they reigster.
 $SQL .= ",\"".$_POST['Member_name']."\"";
 $SQL .= ",\"".$_POST['Grad_Year']."\"";
 $SQL .= ",\"".$_POST['Email']."\"";
 $SQL .= ",\"".$_POST['Admin_status']."\"";
-$SQL .= ",\"".$_POST['Dues_owed']."\"";
+//$SQL .= ",\"".$_POST['Dues_owed']."\"";
 $SQL .= ");";
 
 		//execute the insert
@@ -81,6 +85,7 @@ $SQL .= ");";
 		    echo "<div class='w3-round-small w3-green w3-center w3-padding-16' style='width:75%; margin-left:auto; margin-right:auto'>Successfully inserted</div>\n";
 		    $_SESSION['Member_name']='Member_name';
 		    $_SESSION['FoS_id']='FoS_id';
+		    
 		}
 		else
 		{
@@ -95,6 +100,7 @@ $SQL .= ");";
 	    // no post data notify the user
 	    echo "<p class='w3-centered'>Nothing to insert</p>\n";
 	}
+    header("Location:UserPage.php");
 //close the connection
 //$Connection->close();
 }

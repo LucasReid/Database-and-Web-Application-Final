@@ -1,41 +1,40 @@
+<?php
+ $connec = mysqli_connect('willy','comp305_grp1','Temp!comp305_grp1','comp305_grp1');
+        if(!$connec)
+        {
+            $output = "unable to connect";
+            exit();
+        }
+        require "comp305.php";
+?>
 <!DOCTYPE html>
 <head>
-<meta charset="UTF-8"></meta>
+<meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <link rel="stylesheet" href="https://www.w3schools.com/lib/w3.css"/>
 <link rel="stylesheet" type="text/css" href="mainCSS.css"/>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-red.css">
 <script src="webJS.js" defer></script>
 </head>
 
 <title> Under Construction </title>
-<body style="min-width:1000">
-<?php	
-$connec = mysqli_connect('willy','comp305_grp1','Temp!comp305_grp1','comp305_grp1');
-if(!$connec)
-{
-   $output = "unable to connect";
-   exit();
-}
-require "comp305.php";
-if ( isset( $_SESSION["Member_id"] ))
-{
-    // echo the current user
-    echo "   <h5 >Current User: ".$_SESSION["Member_name"]."</h5>\n";
-}
-else
-{
-    // echo no login yet
-    echo "   <h5 >No user logged in</h5>\n";
-    
-}
-?>
-<!----------------START OF NAVIGATION MENU----------------> 
-  
-<span style="font-size:30px;cursor:pointer;float:left" onclick="openNav()">&#9776; open</span>
-    <div id="navigation" class="sidenav">
+<body class="w3-theme-l5">
+    <!----------------START OF NAVIGATION MENU----------------> 
+<div id="navigation" class="sidenav">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-  <a href="logIn.php">Login</a>
+  
+    <?php	
+    if ( isset( $_SESSION["Member_id"]))
+    {
+        echo "<a href='UserPage.php'>Member Page</a>";
+        echo "<a href='logOut.php'>Log Out</a>\n";
+    }else{
+        echo "<a href='logIn.php'>Login</a>";
+    }
+    ?>
+    
 </div>    
 <script>
     function openNav() {
@@ -49,14 +48,27 @@ else
         document.body.style.backgroundColor = "#821717";
     }
 </script>
-<!---------------- START PAGE BODY ---------------->  
-<div id="body" >   
-    <div class="title">   
-        <h1 class="title">LHU Fraternity &#38; Sorority</h1>
-    </div>
+    <!---------------- START PAGE BODY ----------------> 
+<div id="body" >     
+<div class="w3-container w3-padding-8 w3-theme-d5" style="margin-top:0px; margin-bottom:0px">
+        
+    <h1 class="w3-center">LHU Fraternities &#38; Sororities</h1>
+    <?php	
+        if ( isset( $_SESSION["Member_id"]))
+        {
+        // echo the current user
+            echo "   <h5 class='w3-center'>Current User: ".$_SESSION["Member_name"]."</h5>\n";
+        }
+        else
+        {
+        // echo no login yet
+            echo "   <h5 >No user logged in</h5>\n";
 
-
-
+        }
+    ?> 
+    <span style="font-size:30px;cursor:pointer;margin-left:0px" onclick="openNav()">&#9776; open</span> 
+</div>  
+    
     <!----------------START OF FRATERNITIES TABS---------------->    
     <h2>Fraternities</h2>
     <div id="boxes">
@@ -89,7 +101,7 @@ else
         
         <!-- info tabs -->
         <!--ACR-->
-        <div id="ACR" style="display:none" class="tabContent w3-panel w3-grey w3-margin-left w3-margin-right w3-leftbar w3-border-black">
+        <div id="ACR" style="display:none" class="tabContent w3-panel w3-white w3-margin-left w3-margin-right w3-leftbar w3-border-red">
         <h3 class="w3-animate-left">Alpha Chi Rho</h3>
         <p>
         <?php 
@@ -122,7 +134,7 @@ else
     </div>
     
     	<!--ASP-->
-        <div id="ASP" style="display:none" class="tabContent w3-panel w3-grey w3-margin-left w3-margin-right w3-leftbar w3-border-black">
+        <div id="ASP" style="display:none" class="tabContent w3-panel w3-white w3-margin-left w3-margin-right w3-leftbar w3-border-red">
         <h3 class="w3-animate-top">Alpha Sigma Phi</h3>
         <p> <?php 
 				 $sql3="select Description FROM Fraternities_and_Sororities where FoS_id=2;";
@@ -154,7 +166,7 @@ else
     </div>
     
     	<!--KDR-->
-         <div id="KDR" style="display:none" class="tabContent w3-panel w3-grey w3-margin-left w3-margin-right w3-leftbar w3-border-black w3-highlight-yellow">
+         <div id="KDR" style="display:none" class="tabContent w3-panel w3-white w3-margin-left w3-margin-right w3-leftbar w3-border-red">
         <h3 class="w3-animate-top">Kappa Delta Rho</h3>
         <p><?php 
 		$sql4="select Description FROM Fraternities_and_Sororities where FoS_id=3;";
@@ -187,7 +199,7 @@ else
     </div>
     
     	<!--PMD-->
-        <div id="PMD" style="display:none" class="tabContent w3-panel w3-grey w3-margin-left w3-margin-right w3-leftbar w3-border-black">
+        <div id="PMD" style="display:none" class="tabContent w3-panel w3-white w3-margin-left w3-margin-right w3-leftbar w3-border-red">
         <h3 class="w3-animate-right">Phi Mu Delta</h3>
         <p ><?php 
 				 $sql5="select Description FROM Fraternities_and_Sororities where FoS_id=4;";
@@ -250,7 +262,7 @@ else
         </div>
         <!-- info tabs -->
         <!--AST-->
-       <div id="AST" style="display:none" class="tabContent w3-panel w3-grey w3-margin-left w3-margin-right w3-leftbar w3-border-black w3-bold w3-black">
+       <div id="AST" style="display:none" class="tabContent w3-panel w3-white w3-margin-left w3-margin-right w3-leftbar w3-border-red ">
         <h3 class="w3-animate-left">Alpha Sigma Tau</h3>
         <p><?php 
 				 $sql6="select Description FROM Fraternities_and_Sororities where FoS_id=5;";
@@ -282,7 +294,7 @@ else
     </div>
     
     <!--SK-->
-    <div id="SK" style="display:none" class="tabContent w3-panel w3-grey w3-margin-left w3-margin-right w3-leftbar w3-border-black">
+    <div id="SK" style="display:none" class="tabContent w3-panel w3-white w3-margin-left w3-margin-right w3-leftbar w3-border-red">
         <h3 class="w3-animate-top">Sigma Kappa</h3>
         <p><?php 
 				 $sql7="select Description FROM Fraternities_and_Sororities where FoS_id=6;";
@@ -315,7 +327,7 @@ else
     </div>
     
     <!--SSS-->
-    <div id="SSS" style="display:none" class="tabContent w3-panel w3-grey w3-margin-left w3-margin-right w3-leftbar w3-border-black w3-bold">
+    <div id="SSS" style="display:none" class="tabContent w3-panel w3-white w3-margin-left w3-margin-right w3-leftbar w3-border-red">
         <h3 class="w3-animate-top">Sigma Sigma Sigma</h3>
         <p><?php 
 				 $sql8="select Description FROM Fraternities_and_Sororities where FoS_id=7;";
@@ -347,7 +359,7 @@ else
     </div>
     
     <!--ZTA-->
-    <div id="ZTA" style="display:none" class="tabContent w3-panel w3-grey w3-margin-left w3-margin-right w3-leftbar w3-border-black w3-bold">
+    <div id="ZTA" style="display:none" class="tabContent w3-panel w3-white w3-margin-left w3-margin-right w3-leftbar w3-border-red">
         <h3 class="w3-animate-right">Zeta Tau Alpha</h3>
         <p ><?php 
 				 $sql9="select Description FROM Fraternities_and_Sororities where FoS_id=8;";
@@ -393,11 +405,12 @@ else
         } 
     </script>    
     <!-- end of boxes -->
-
-<div class="w3-container w3-padding-32 w3-center w3-opacity w3-light-grey w3-small w3-block">
-<p class="w3-text-grey">Copyright 2017 &#169; </p>
+</div><!-- end of Body -->    
+<div class="w3-container w3-padding-32 w3-center w3-theme-d5 w3-small w3-block">
+<p > Copyright 2017 &#169; </p>
+<p > Don't Forget to <a href="logOut.php" style="text-decoration:none">Log Out</a></p>    
     
 </div>
-</div><!-- end of Body -->
+
 </body>
 </html>

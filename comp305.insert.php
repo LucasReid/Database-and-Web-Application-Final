@@ -27,7 +27,7 @@ ini_set("display_errors", 1);
     $_SESSION["Grad_Year"]= $_POST["Grad_Year"];
     $_SESSION["Email"] = $_POST["Email"];
     $_SESSION["Admin_status"] = $_POST["Admin_status"];
-    $_SESSION["Dues_owed"] = $_POST["Dues_owed"];
+    //$_SESSION["Dues_owed"] = $_POST["Dues_owed"];
 
     //WriteRegistrationINFO();
     WriteRegistrationINFO();
