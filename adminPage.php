@@ -1,3 +1,4 @@
+
 <?php
 require "comp305.php";
 ?>
@@ -10,6 +11,8 @@ require "comp305.php";
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-red.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <style>
@@ -25,13 +28,13 @@ require "comp305.php";
     /* Set gray background color and 100% height */
     .sidenav {
       padding-top: 20px;
-      background-color: #f1f1f1;
+      
       height: 100%;
     }
     
     /* Set black background color, white text and some padding */
     footer {
-      background-color: #555;
+     
       color: white;
       padding: 15px;
     }
@@ -48,7 +51,8 @@ require "comp305.php";
 </head>
 <body>
 
-<nav class="navbar navbar-inverse">
+
+<nav class="navbar navbar-inverse w3-theme-d5">
   <div class="container-fluid">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -62,9 +66,10 @@ require "comp305.php";
       <ul class="nav navbar-nav">
         <li class="active"><a href="#">Users</a></li>
         <li><a href="#">Edit</a></li>
+        
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="logIn.php"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+         <li><a href="logOut.php"><span class="glyphicon glyphicon-log-out"></span> Logout </a></li>
       </ul>
     </div>
   </div>
@@ -78,23 +83,28 @@ require "comp305.php";
     </div>
     <div class="col-sm-8 text-left"> 
       <h1>Welcome</h1>
-      <p> Welcome to *SQL statement goes here*</p>
+      <?php	
+        if ( isset( $_SESSION["Member_id"]))
+        {
+        // echo the current user
+            echo "   <h5 class='w3-center'> ".$_SESSION["Member_name"]."</h5>\n";
+        }
+        else
+        {
+        // echo no login yet
+            echo "   <h5 >No user logged in</h5>\n";
+
+        }
+    ?>
       <hr>
       <h3>View</h3>
       
       <form action ='' method='POST'>
-		Email <input type='' id ='email' name='email'/><br/>
+		MemberID <input type='' id ='MemberID' name='MemberID'/><br/>
 		<input type='submit' name='submit' />
 		</form>
-      
-      <?php
-			
-			
-			AdminPageView();
-			?>
-			
 		
-	  </p>
+		
     </div>
     <div class="col-sm-2 sidenav">
     </div>
@@ -102,15 +112,7 @@ require "comp305.php";
 </div>
 
 <!-- Footer -->
-<footer class="w3-center w3-black w3-padding-64 w3-opacity w3-hover-opacity-off">
-  <div class="w3-xlarge w3-section">
-    <a href="https://www.facebook.com/AXPLHU/" class="fa fa-facebook"></a>
-    <i class="fa fa-instagram w3-hover-opacity"></i>
-    <i class="fa fa-snapchat w3-hover-opacity"></i>
-    
-    <i class="fa fa-twitter w3-hover-opacity"></i>
-   
-  </div>
+<footer class="w3-center w3-black w3-padding-32 w3-theme-d5">
   <p>Frat & Sorority</p>
 </footer>
 
