@@ -7,56 +7,49 @@ require "comp305.php";
 <head>
 <meta charset="UTF-8"></meta>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title> Under Construction </title>
 <link rel="stylesheet" href="https://www.w3schools.com/lib/w3.css">
 <link rel="stylesheet" type="text/css" href="mainCSS.css"/>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <script src="webJS.js" defer></script>
-
-
+</head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-red.css">
 <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-</head>
-<body class="w3-theme-l5">
 <style>
 html,body,h1,h2,h3,h4,h5 {font-family: "Open Sans", sans-serif}
 </style>
-
+<body class="w3-theme-l5" style="min-width: 900px">
+<title> Under Construction </title>
+<body>
+<div class="body" style="min-width: 900px">
 
 <!-- Navbar -->
 <div class="w3-top">
  <div class="w3-bar w3-theme-d2 w3-left-align w3-large">
-
   <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-theme-d2" href="javascript:void(0);" onclick="openNav()"><i class="fa fa-bars"></i></a>
-  <a href="mainPageTemplate.php" class="w3-bar-item w3-button w3-padding-large w3-theme-d4"><i class="fa fa-home w3-margin-right"></i>LHU Fraternity &#38 Sorority</a>
-  
+  <a href="#" class="w3-bar-item w3-button w3-padding-large w3-theme-d4"><i class="fa fa-home w3-margin-right"></i>LHU Fraternity &#38 Sorority</a>
   <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" title="National Chapter Web"><i class="fa fa-globe"></i></a>
-	 <p class="w3-bar-item"><?php
- if($_SESSION['Member_name']!==null)
-{
-echo "  Current Member Name: ".$_SESSION["Member_name"]."\n";
-}
-else
-{
-  echo "<center>You are not logged in</center>";
-}?></p>
-  <a href="logOut.php" class="w3-bar-item w3-button w3-hide-small w3-right w3-padding-large w3-hover-white" title="My Account"><img src="/w3images/avatar2.png" class="w3-circle" style="height:25px;width:25px" alt="LogOut"></a>
+  <div class="w3-dropdown-hover w3-hide-small">
+    <div class="w3-dropdown-content w3-card-4 w3-bar-block" style="width:300px">
+    </div>
+  </div>
  </div>
 </div>
 
 
-<!-- Page Container -->
+<!-- Left Page Container With Calander -->
 <div class="w3-container w3-content" style="max-width:1400px;margin-top:80px">
-  <!-- The Grid -->
-  <div class="w3-row">
+
     <!-- Left Column -->
     <div class="w3-col m3">
-      <!-- Profile -->
+      <!-- Profile of Calendar -->
       <div class="w3-card-2 w3-round w3-white" style="float: right">
-        <div class="w3-container"style="width: auto">
+        <div class="w3-container"style="width: 500px; height: 500px">
+          <div class="w3-card-2 w3-round w3-light-red w3-center" style="width: auto; height: 500px">
+            <iframe src="https://calendar.google.com/calendar/embed?src=9sq4hf7qtm45vq71l4bknaqsnk%40group.calendar.google.com&ctz=America/New_York" style="border: 0px" width="100%" height="100%" frameborder="0" scrolling="no"></iframe></div>
+
         </div>
       </div>
       <br>
@@ -64,10 +57,12 @@ else
 
     <!-- End Left Column -->
     </div>
+
     
     <!-- Middle Column -->
     <div class="w3-col m7">
 
+     
       <div class="w3-row-padding">
         <div class="w3-col m12">
           <div class="w3-card-2 w3-round w3-white">
@@ -104,8 +99,7 @@ else
             </div>
           </div>
         </div>
-      </div>
-
+</div>
 
 
       
@@ -127,11 +121,20 @@ else
             </div>
         </div>
       </div>
+<br>
+      
+    <!-- End Middle Column -->
+    </div>
+    
+    <!-- Right Column  -->
+    
+   <div>
+        
+          <!-- Profile -->
+         
       <br>
 
-      <div class="w3-card-2 w3-round w3-white w3-padding-32 w3-center" style="width: 315px">
-        <iframe src="https://calendar.google.com/calendar/embed?src=9sq4hf7qtm45vq71l4bknaqsnk%40group.calendar.google.com&ctz=America/New_York" style="border: 5px" width="300" height="300" frameborder="0" scrolling="no"></iframe></div>
-      
+
     <!-- End Right Column -->
     </div>
     
@@ -143,9 +146,12 @@ else
 <br>
 
 <!-- Footer -->
-<footer class="w3-container w3-theme-d3 w3-padding-16 w3-center">
-  <h5>LHU COMP305 SCRUM Final</h5>
+<footer class="w3-container w3-theme-d3 w3-padding-16 w3-center w3-color-pink">
+  <h5>LHU COMP305 Scrum Final</h5>
 </footer>
+</div>
 
+</body>
+</body>
 </body>
 </html>
