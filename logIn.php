@@ -128,11 +128,11 @@ $result = $conn->query($sql);
 				</select>          
             	
             <p>
-                <label class="w3-large"> Member ID </label>
-                <input class="w3-input" name="Member_id" type="password" id="Member_id">
+                <label class="w3-large"> Password </label>
+                <input class="w3-input" name="Password" type="password">
             </p>
             <div>
-                <button type="submit" name="Submit" class="w3-button w3-text-center w3-padding-16 w3-hover-green" style="width:50%;float:left; background-color:#008F00; color:white">Login</button>
+                <button type="submit" name="Submit" class="w3-button w3-text-center w3-padding-16 w3-hover-green" style="width:50%;float:left; background-color:#008f00; color:white">Login</button>
 
                 <button type="button" onclick="document.getElementById('register').style.display='block'" class="w3-button w3-text-center w3-padding-16 w3-hover-blue" style="width:50%; background-color:#4365b7; color:white">Need an Account?</button>
             </div>
@@ -184,17 +184,33 @@ $result = $conn->query($sql);
             <label><b class="w3-text-black">Graduation Year</b></label>
             <input name="Grad_Year" type="int" required="true" placeholder="YYYY" />
             
-            <label><b class="w3-text-black">Email</b></label>
-            <input name="Email" type="text" required="true" placeholder="example@yourmail.com"/>
+            <label><b class="w3-text-black">Email</b></label><br>
+            <input  name="Email" style="" class="w3-block w3-input w3-border" type="email" required="true" placeholder="example@yourmail.com"/>
+            <br>
+            <label><b class="w3-text-black">Password</b></label>
+            <input name="Password" id="pw" type="password" required="true"/>
             
-            <label><b class="w3-text-black"> Admin Status </b></label>
-            <input name="Admin_status" type="text" required="true" placeholder="Y or N"/>
+            <label><b class="w3-text-black">Re-Enter Password</b></label>
+            <input name="check_password" id="checkPw" type="password" required="true" onkeyup='reference();'>
+            <span id="checkStatus"></span>
 
-            
+            <script>
+                function reference() {
+                    if(document.getElementById('pw').value == document.getElementById('checkPw').value){
+                        document.getElementById('checkStatus').style.color = 'green';
+                        document.getElementById('checkStatus').innerHTML='Matching';
+                        document.getElementById('submit').disabled=false;
+                    }else{
+                        document.getElementById('submit').disabled=true;
+                        document.getElementById('checkStatus').style.color = 'red';
+                        document.getElementById('checkStatus').innerHTML='Not Matching';
+                    }
+                }
+            </script>
             <div>
-                <button type="submit" class="w3-button w3-signal-green w3-hover-green w3-margin-top"style="height:50px;width:100%">Register</button>
+                <button type="submit" id="submit" class="w3-button w3-hover-green w3-margin-top" style="height:50px;width:100%; background-color:#008F00;color:white">Register</button>
                 
-                <button type="button" onclick="document.getElementById('register').style.display='none'" class="w3-margin-top w3-btn w3-vivid-red ">Cancel</button>
+                <button type="button" onclick="document.getElementById('register').style.display='none'" class="w3-margin-top w3-btn w3-hover-red" style="">Cancel</button>
             </div>
           
         </div>

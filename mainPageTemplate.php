@@ -26,9 +26,15 @@
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
   
     <?php	
-    if ( isset( $_SESSION["Member_id"]))
+    if ( isset( $_SESSION["Member_name"]))
     {
-        echo "<a href='UserPage.php'>Member Page</a>";
+    	if($_SESSION['Admin_status']=='Y'){
+   		 echo "<a href='adminPage.php'>Member Page</a>";
+		}else if($_SESSION['Admin_status']=='N'){
+  		   echo "<a href='UserPage.php'>Member Page</a>";
+			}
+       //echo "<a href='UserPage.php'>Member Page</a>";
+        
         echo "<a href='logOut.php'>Log Out</a>\n";
     }else{
         echo "<a href='logIn.php'>Login</a>";
@@ -105,7 +111,7 @@
         <h3 class="w3-animate-left">Alpha Chi Rho</h3>
         <p>
         <?php 
-				 $sql2="select Description FROM Fraternities_and_Sororities where FoS_id=1;";
+				 $sql2="select Description, Dues, Contact_person, Email FROM Fraternities_and_Sororities where FoS_id=1;";
 				 $Results2=$connec->query($sql2);
 				 if ( $Results2 )
     		{
@@ -137,7 +143,7 @@
         <div id="ASP" style="display:none" class="tabContent w3-panel w3-white w3-margin-left w3-margin-right w3-leftbar w3-border-red">
         <h3 class="w3-animate-top">Alpha Sigma Phi</h3>
         <p> <?php 
-				 $sql3="select Description FROM Fraternities_and_Sororities where FoS_id=2;";
+				$sql3="select Description, Dues, Contact_person, Email FROM Fraternities_and_Sororities where FoS_id=2;";
 				 $Results3=$connec->query($sql3);
 				 if ( $Results3 )
     		{
@@ -169,7 +175,7 @@
          <div id="KDR" style="display:none" class="tabContent w3-panel w3-white w3-margin-left w3-margin-right w3-leftbar w3-border-red">
         <h3 class="w3-animate-top">Kappa Delta Rho</h3>
         <p><?php 
-		$sql4="select Description FROM Fraternities_and_Sororities where FoS_id=3;";
+		$sql4="select Description, Dues, Contact_person, Email FROM Fraternities_and_Sororities where FoS_id=3;";
 		$Results4=$connec->query($sql4);
 		if ( $Results4 )
     		{
@@ -202,7 +208,7 @@
         <div id="PMD" style="display:none" class="tabContent w3-panel w3-white w3-margin-left w3-margin-right w3-leftbar w3-border-red">
         <h3 class="w3-animate-right">Phi Mu Delta</h3>
         <p ><?php 
-				 $sql5="select Description FROM Fraternities_and_Sororities where FoS_id=4;";
+				 $sql5="select Description, Dues, Contact_person, Email FROM Fraternities_and_Sororities where FoS_id=4;";
 				 $Results5=$connec->query($sql5);
 				 if ( $Results5 )
     		{
@@ -265,7 +271,7 @@
        <div id="AST" style="display:none" class="tabContent w3-panel w3-white w3-margin-left w3-margin-right w3-leftbar w3-border-red ">
         <h3 class="w3-animate-left">Alpha Sigma Tau</h3>
         <p><?php 
-				 $sql6="select Description FROM Fraternities_and_Sororities where FoS_id=5;";
+			$sql6="select Description, Dues, Contact_person, Email FROM Fraternities_and_Sororities where FoS_id=5;";
 				 $Results6=$connec->query($sql6);
 				 if ( $Results6 )
     		{
@@ -297,7 +303,7 @@
     <div id="SK" style="display:none" class="tabContent w3-panel w3-white w3-margin-left w3-margin-right w3-leftbar w3-border-red">
         <h3 class="w3-animate-top">Sigma Kappa</h3>
         <p><?php 
-				 $sql7="select Description FROM Fraternities_and_Sororities where FoS_id=6;";
+			$sql7="select Description, Dues, Contact_person, Email FROM Fraternities_and_Sororities where FoS_id=6;";
 				 $Results7=$connec->query($sql7);
 				 if ( $Results7 )
     		{
@@ -330,7 +336,7 @@
     <div id="SSS" style="display:none" class="tabContent w3-panel w3-white w3-margin-left w3-margin-right w3-leftbar w3-border-red">
         <h3 class="w3-animate-top">Sigma Sigma Sigma</h3>
         <p><?php 
-				 $sql8="select Description FROM Fraternities_and_Sororities where FoS_id=7;";
+			$sql8="select Description, Dues, Contact_person, Email FROM Fraternities_and_Sororities where FoS_id=7;";
 				 $Results8=$connec->query($sql8);
 				 if ( $Results8 )
     		{
@@ -362,7 +368,7 @@
     <div id="ZTA" style="display:none" class="tabContent w3-panel w3-white w3-margin-left w3-margin-right w3-leftbar w3-border-red">
         <h3 class="w3-animate-right">Zeta Tau Alpha</h3>
         <p ><?php 
-				 $sql9="select Description FROM Fraternities_and_Sororities where FoS_id=8;";
+			$sql9="select Description, Dues, Contact_person, Email FROM Fraternities_and_Sororities where FoS_id=8;";
 				 $Results9=$connec->query($sql9);
 				 if ( $Results9 )
     		{

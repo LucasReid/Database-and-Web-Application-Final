@@ -1,4 +1,3 @@
-
 <?php
 require "comp305.php";
 ?>
@@ -93,18 +92,18 @@ require "comp305.php";
         {
         // echo no login yet
             echo "   <h5 >No user logged in</h5>\n";
-
         }
     ?>
       <hr>
       <h3>View</h3>
-      
-      <form action ='' method='POST'>
+      <?php 
+      	$fos = $_SESSION['FoS_id'];
+			writeRegistrationINFO($fos);      
+      ?>
+      	<form action ='' method='POST'>
 		MemberID <input type='' id ='MemberID' name='MemberID'/><br/>
 		<input type='submit' name='submit' />
-		</form>
-		
-		
+	</form>
     </div>
     <div class="col-sm-2 sidenav">
     </div>
@@ -113,7 +112,7 @@ require "comp305.php";
 
 <!-- Footer -->
 <footer class="w3-center w3-black w3-padding-32 w3-theme-d5">
-  <p>Frat & Sorority</p>
+  <p>Admin Page</p>
 </footer>
 
 </body>

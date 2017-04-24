@@ -34,8 +34,11 @@
 }
 
 #body {
-    transition: margin-left .5s;
-    padding: 16px;    
+    min-width:900px;
+    margin-top: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+    transition: margin-left .5s;   
 }
 
 @media screen and (max-height: 450px) {
@@ -79,11 +82,6 @@ div.title h1{
 background-color: white;
     
     
-}
-
-body {
-background-color:#821717;
-    height: 100%;
 }
 
 
