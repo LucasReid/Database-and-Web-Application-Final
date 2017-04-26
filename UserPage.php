@@ -187,7 +187,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Open Sans", sans-serif}
 <!-- Footer -->
 <footer class="w3-container w3-theme-d3 w3-padding-16 w3-center w3-color-pink">
     <h5>LHU COMP305 Scrum Final</h5>
-    <h6 class="w3-opacity">Don't tell enyone your password!</h6>
+    <h6 class="w3-opacity">Don't tell ANYONE your password!</h6>
     
 </footer>
 </body>
