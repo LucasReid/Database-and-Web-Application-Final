@@ -5,22 +5,21 @@ require "comp305.php";
 ?>
 <!DOCTYPE html>
 <head>
-<meta charset="UTF-8"></meta>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/lib/w3.css">
-<link rel="stylesheet" type="text/css" href="mainCSS.css"/>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<script src="webJS.js" defer></script>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/lib/w3.css">
+    <link rel="stylesheet" type="text/css" href="mainCSS.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-red.css">
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-red.css">
-<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 <style>
 html,body,h1,h2,h3,h4,h5 {font-family: "Open Sans", sans-serif}
 </style>
-<body class="w3-theme-l5" style="min-width: 900px">
 <title> Under Construction </title>
 <body>
 <div class="body" style="min-width: 900px">
@@ -41,68 +40,108 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Open Sans", sans-serif}
 
 <!-- Left Page Container With Calander -->
 <div class="w3-container w3-content" style="max-width:1400px;margin-top:80px">
-
     <!-- Left Column -->
     <div class="w3-col m3">
-      <!-- Profile of Calendar -->
-      <div class="w3-card-2 w3-round w3-white" style="float: right">
-        <div class="w3-container"style="width: 500px; height: 500px">
-          <div class="w3-card-2 w3-round w3-light-red w3-center" style="width: auto; height: 500px">
-            <iframe src="https://calendar.google.com/calendar/embed?src=9sq4hf7qtm45vq71l4bknaqsnk%40group.calendar.google.com&ctz=America/New_York" style="border: 0px" width="100%" height="100%" frameborder="0" scrolling="no"></iframe></div>
-
+        <!-- Profile of Calendar -->
+        <div class="w3-card-2 w3-round w3-white" style="float: right">
+          <div class="w3-container"style="width: 500px; height: 500px">
+            <div class="w3-card-2 w3-round w3-light-red w3-center" style="width: auto; height: 500px">
+              <iframe src="https://calendar.google.com/calendar/embed?src=9sq4hf7qtm45vq71l4bknaqsnk%40group.calendar.google.com&ctz=America/New_York" style="border: 0px" width="100%"   height="100%" frameborder="0" scrolling="no"></iframe></div>
+          </div>
         </div>
-      </div>
-      <br>
-
-
-    <!-- End Left Column -->
+        <br>
+        <!-- End Left Column -->
     </div>
 
-    
     <!-- Middle Column -->
     <div class="w3-col m7">
 
-     
       <div class="w3-row-padding">
         <div class="w3-col m12">
           <div class="w3-card-2 w3-round w3-white">
             <div class="w3-container w3-padding">
-              <h6 class="w3-opacity">Lock Haven University of Pennsylvania Sorority and Faterinty</h6>
-					<p>
-						<?php if($_SESSION['Member_name']!==null)
-{
-echo " <p>\n";
-echo "  Current Member ID: ".$_SESSION["Member_id"]."\n";
-echo " <br />";
-echo "  Current Fraternity / Sorority ID: ".$_SESSION["FoS_id"]."\n";
-echo " <br />";
-echo "  Current Member Name: ".$_SESSION["Member_name"]."\n";
-echo " <br />";
-echo "  Current Grad Year: ".$_SESSION["Grad_Year"]."\n";
-echo " <br />";
-echo "  Current Email: ".$_SESSION["Email"]."\n";
-echo " <br />";
-echo "  Current Admin Status: ".$_SESSION["Admin_status"]."\n";
-echo " <br />";
-echo "  Current Dues: ".$_SESSION["Dues_owed"]."\n";
-echo " <br />";
-echo " </p>";
-//$sql2="INSERT INTO 'Admin_Log' ('Login_id, 'Member_id', 'FoS_id' 'Login_time) VALUES ('',".$_SESSION["Member_id"].",".$_SESSION["FoS_id"].",NOW());";
-//$result=mysqli_query(DatabaseConnect(),$sql2);
-}
-else
-{
-  echo "<center>You are not logged in</center>";
-}?>					
-					</p>
+                <div class="w3-container" style="max-width:300px; max-height:300px; margin-bottom:20px" >
+                    <?php
+                        $fos = $_SESSION['FoS_id'];
+                        $pass = $_SESSION['Password'];
+                    ?>
+                    <script>
+                        var fos = "<?php echo $fos ?>";
+                        
+                        var imgArray = new Array();
 
+                        imgArray[1] = new Image();
+                        imgArray[1].src ='pictures/ACR.jpg'; 
+                        
+                        imgArray[2] = new Image();
+                        imgArray[2].src ='pictures/ASP.jpg'; 
+                        
+                        imgArray[3] = new Image();
+                        imgArray[3].src ='pictures/KDR.jpg'; 
+                        
+                        imgArray[4] = new Image();
+                        imgArray[4].src ='pictures/PMD.jpg'; 
+                        
+                        imgArray[5] = new Image();
+                        imgArray[5].src ='pictures/AST.jpg'; 
+                        
+                        imgArray[6] = new Image();
+                        imgArray[6].src ='pictures/SK.jpg'; 
+                        
+                        imgArray[7] = new Image();
+                        imgArray[7].src ='pictures/SSS.jpg'; 
+                        
+                        imgArray[8] = new Image();
+                        imgArray[8].src ='pictures/ZTA.jpg';
+                        
+                        document.write("<img src='"+imgArray[fos].src+"'/>");
+                    </script>
+                </div>
+                <div class="w3-card-4" style="padding:15px;">
+                    <h5 class="w3-opacity" >Lock Haven University of Pennsylvania Sorority and Faterinty</h5>
+                    <div>
+                        <script>
+                            var fos = "<?php echo $fos?>";
+                            var pass = "<?php echo $pass?>";
+                            var fsNames=[
+                                'Alpha Chi Rho', 'Alpha Sigma Phi','Kappa Delta Rho', 'Phi Mu Delta', 'Alpha Sigma Tau','Sigma Kappa', 'Sigma Sigma Sigma', 'Zeta Tau Alph'
+                            ];
+                            document.write("<p>Fraternity / Sorority: "+fsNames[fos-1]+"</p>");
+                            document.write("<p>Password: <span style='background-color:black'><span class='password w3-border'>"+pass+"</span></span></p>");
+                        </script>
+                        
+                    </div> 
+                    <hr>
+                    <?php
+                        if($_SESSION['Member_name']!==null)
+                        {
+                            echo " <table class='w3-table-all w3-centered'>";
+                            echo " <tr>";
+                            echo " <th> Member ID</th>";
+                            echo " <th> Grad Year</th>";
+                            echo " <th> Email</th>";
+                            echo " <th> Admin Status</th>";
+                            echo " <th> Dues Owed</th>";
+                            echo " </tr>";
+                            echo " <tr>";
+                            echo " <td> ".$_SESSION["Member_id"]."</td>";
+                            echo " <td> ".$_SESSION["Grad_Year"]."</td>";
+                            echo " <td> ".$_SESSION["Email"]."</td>";
+                            echo " <td> ".$_SESSION["Admin_status"]."</td>";
+                            echo " <td> ".$_SESSION["Dues_owed"]."</td>";
+                            echo " </tr>";
+                            echo " </table>";
+                        }
+                        else
+                        {
+                            echo "<center>You are not logged in</center>";
+                        }
+                    ?>					
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-</div>
-
-
-      
+        </div>  
     <!-- End Middle Column -->
     </div>
     
@@ -110,12 +149,13 @@ else
     <div class="w3-col m2">
       <div class="w3-card-2 w3-round w3-white w3-center" style="border: 0px">
         <div class="w3-container">
-          <p>PHP name here of whoever is logged in's club name</p>
+            <?php
+                echo"<p>Welcome: ".$_SESSION['Member_name']."</p>";
+            ?>
+          <hr>
           <p><button class="w3-button w3-block w3-theme-l4">Learn More</button></p>
           <!-- Profile -->
-                This is where the outline of the fraternity or sorority would pop up and be nice to look at. with link to fb and twitter.
-              </p>
-
+            <p> This is where the outline of the fraternity or sorority would pop up and be nice to look at. with link to fb and twitter.</p>
               <hr>
             	  <a href="logOut.php"><button type="button" class="w3-button w3-theme" ><i class="fa fa-pencil"></i>  Log Out</button></a>
             </div>
@@ -142,16 +182,13 @@ else
   </div>
   
 <!-- End Page Container -->
-</div>
 <br>
 
 <!-- Footer -->
 <footer class="w3-container w3-theme-d3 w3-padding-16 w3-center w3-color-pink">
-  <h5>LHU COMP305 Scrum Final</h5>
+    <h5>LHU COMP305 Scrum Final</h5>
+    <h6 class="w3-opacity">Don't tell enyone your password!</h6>
+    
 </footer>
-</div>
+</body>
 
-</body>
-</body>
-</body>
-</html>

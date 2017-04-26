@@ -30,7 +30,7 @@
     {
     	if($_SESSION['Admin_status']=='Y'){
    		 echo "<a href='adminPage.php'>Member Page</a>";
-		}else if($_SESSION['Admin_status']=='N'){
+		}else if($_SESSION['Admin_status']!='Y'){
   		   echo "<a href='UserPage.php'>Member Page</a>";
 			}
        //echo "<a href='UserPage.php'>Member Page</a>";
@@ -414,7 +414,7 @@
 </div><!-- end of Body -->    
 <div class="w3-container w3-padding-32 w3-center w3-theme-d5 w3-small w3-block">
 <p > Copyright 2017 &#169; </p>
-<p > Don't Forget to <a href="logOut.php" style="text-decoration:none">Log Out</a></p>    
+<p > Don't Forget to <a href="logOut.php" >Log Out</a></p>    
     
 </div>
 
