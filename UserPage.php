@@ -57,48 +57,18 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Open Sans", sans-serif}
     <div class="w3-col m7">
 
       <div class="w3-row-padding">
-        <div class="w3-col m12">
-          <div class="w3-card-2 w3-round w3-white">
+        <div class="w3-col m12 ">
+          <div class="w3-card-2 w3-round  " style="background-color:#ffe6e6">
             <div class="w3-container w3-padding">
                 <div class="w3-container" style="max-width:300px; max-height:300px; margin-bottom:20px" >
                     <?php
                         $fos = $_SESSION['FoS_id'];
                         $pass = $_SESSION['Password'];
                     ?>
-                    <script>
-                        var fos = "<?php echo $fos ?>";
-                        
-                        var imgArray = new Array();
-
-                        imgArray[1] = new Image();
-                        imgArray[1].src ='pictures/ACR.jpg'; 
-                        
-                        imgArray[2] = new Image();
-                        imgArray[2].src ='pictures/ASP.jpg'; 
-                        
-                        imgArray[3] = new Image();
-                        imgArray[3].src ='pictures/KDR.jpg'; 
-                        
-                        imgArray[4] = new Image();
-                        imgArray[4].src ='pictures/PMD.jpg'; 
-                        
-                        imgArray[5] = new Image();
-                        imgArray[5].src ='pictures/AST.jpg'; 
-                        
-                        imgArray[6] = new Image();
-                        imgArray[6].src ='pictures/SK.jpg'; 
-                        
-                        imgArray[7] = new Image();
-                        imgArray[7].src ='pictures/SSS.jpg'; 
-                        
-                        imgArray[8] = new Image();
-                        imgArray[8].src ='pictures/ZTA.jpg';
-                        
-                        document.write("<img src='"+imgArray[fos].src+"'/>");
-                    </script>
+                    
                 </div>
-                <div class="w3-card-4" style="padding:15px;">
-                    <h5 class="w3-opacity" >Lock Haven University of Pennsylvania Sorority and Faterinty</h5>
+                <div style="padding:35px;">
+                    <h5 class="w3-opacity"><b>Lock Haven University of Pennsylvania Sorority and Fraternity</b></h5>
                     <div>
                         <script>
                             var fos = "<?php echo $fos?>";
@@ -152,6 +122,37 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Open Sans", sans-serif}
             <?php
                 echo"<p>Welcome: ".$_SESSION['Member_name']."</p>";
             ?>
+            <script>
+                        var fos = "<?php echo $fos ?>";
+                        
+                        var imgArray = new Array();
+
+                        imgArray[1] = new Image();
+                        imgArray[1].src ='pictures/ACR.jpg'; 
+                        
+                        imgArray[2] = new Image();
+                        imgArray[2].src ='pictures/ASP.jpg'; 
+                        
+                        imgArray[3] = new Image();
+                        imgArray[3].src ='pictures/KDR.jpg'; 
+                        
+                        imgArray[4] = new Image();
+                        imgArray[4].src ='pictures/PMD.jpg'; 
+                        
+                        imgArray[5] = new Image();
+                        imgArray[5].src ='pictures/AST.jpg'; 
+                        
+                        imgArray[6] = new Image();
+                        imgArray[6].src ='pictures/SK.jpg'; 
+                        
+                        imgArray[7] = new Image();
+                        imgArray[7].src ='pictures/SSS.jpg'; 
+                        
+                        imgArray[8] = new Image();
+                        imgArray[8].src ='pictures/ZTA.jpg';
+                        
+                        document.write("<img src='"+imgArray[fos].src+"'/>");
+                    </script>
           <hr>
           <p><button class="w3-button w3-block w3-theme-l4">Learn More</button></p>
           <!-- Profile -->
@@ -187,7 +188,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Open Sans", sans-serif}
 <!-- Footer -->
 <footer class="w3-container w3-theme-d3 w3-padding-16 w3-center w3-color-pink">
     <h5>LHU COMP305 Scrum Final</h5>
-    <h6 class="w3-opacity">Don't tell enyone your password!</h6>
+    <h6 class="w3-opacity">Don't tell ANYONE your password!</h6>
     
 </footer>
 </body>
