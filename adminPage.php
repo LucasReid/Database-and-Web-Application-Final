@@ -95,15 +95,15 @@ require "comp305.php";
         }
     ?>
       <hr>
-      <h3>View</h3>
+      <h3>Member Information</h3>
       <?php 
       	$fos = $_SESSION['FoS_id'];
 			writeRegistrationINFO($fos);      
       ?>
-      	<form action ='' method='POST'>
+      	<!--<form action ='' method='POST'>
 		MemberID <input type='' id ='MemberID' name='MemberID'/><br/>
 		<input type='submit' name='submit' />
-	</form>
+	</form>-->
     </div>
     <div class="col-sm-2 sidenav">
     </div>
