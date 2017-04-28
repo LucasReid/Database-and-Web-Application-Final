@@ -105,7 +105,19 @@ img{
     color: white;
 }
 
+span.password{
+    background-color:black;
+    color:white;
+    visibility: hidden;
+    opacity:0;
+    transition:opacity 0.5 ease;
+}
 
+p:hover .password{
+    background-color:black;
+    opacity:1;
+    visibility: visible;
+}
 
 
 
