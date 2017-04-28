@@ -156,7 +156,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Open Sans", sans-serif}
           <hr>
           <p><button class="w3-button w3-block w3-theme-l4">Learn More</button></p>
           <!-- Profile -->
-            <p> This is where the outline of the fraternity or sorority would pop up and be nice to look at. with link to fb and twitter.</p>
+           // <p> This is where the outline of the fraternity or sorority would pop up and be nice to look at. with link to fb and twitter.</p>
               <hr>
             	  <a href="logOut.php"><button type="button" class="w3-button w3-theme" ><i class="fa fa-pencil"></i>  Log Out</button></a>
             </div>
