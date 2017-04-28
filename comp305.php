@@ -139,6 +139,8 @@ function WriteRegistrationINFO($fos)
         echo "      <th>Email: </th>\n";
         echo "      <th>Admin Status: </th>\n";
         echo "      <th>Dues owed: </th>\n";
+        echo "		  <th> Password </th>";
+        echo "		  <th> Edit </th>";	
         echo "   </thead>\n";
         
         // loop through the results
@@ -175,7 +177,9 @@ function WriteRegistrationINFO($fos)
                 echo $Row[$i]."</td>\n";
 
             }
-
+				echo "<td>";
+				echo "<button class='w3-button w3-red' type='button' value='test' onclick=\"document.getElementById('edit').style.display='block'\">edit</button>";
+				echo "</td>";
             // end of the table row
             echo "   </tr>\n";
         }

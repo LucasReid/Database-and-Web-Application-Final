@@ -1,5 +1,12 @@
 <?php
 require "comp305.php";
+
+$memID = $_SESSION['Member_id'];
+$dues = $_SESSION['Dues_owed'];
+
+$SQL = "UPDATE Members Set Dues_owed='$dues' WHERE Member_id = '$memID'";
+mysqli_query($SQL);
+
 ?>
 
 <!DOCTYPE html>
@@ -95,21 +102,45 @@ require "comp305.php";
         }
     ?>
       <hr>
-      <h3>Member Information</h3>
+      <h3>View</h3>
       <?php 
       	$fos = $_SESSION['FoS_id'];
 			writeRegistrationINFO($fos);      
       ?>
-      	<!--<form action ='' method='POST'>
-		MemberID <input type='' id ='MemberID' name='MemberID'/><br/>
+      	<form action ='' method='POST'>
+		<input type='' id ='MemberID' name='MemberID'/><br/>
 		<input type='submit' name='submit' />
-	</form>-->
+	</form>
     </div>
     <div class="col-sm-2 sidenav">
     </div>
   </div>
 </div>
 
+
+<button type="button" onclick="document.getElementById('edit').style.display='block'">test</button>
+<div id="edit" class="modal">
+	<span onclick="document.getElementById('edit').style.display='none'" class="close" title="Close Modal">&times;</span>
+	<form class="modal-content animate" name="data-input" action="" method="POST">
+	<div class="w3-container">
+
+		<p>HEY</p>
+		<input type="number" id="dues" name="Dues_owed"/>		
+		<input type="submit" name="submit" value="Update Dues" />
+		
+		</div>
+	</form>
+
+<script>
+    var modal = document.getElementById('edit');
+    
+    window.onclick = function(event){
+        if(event.target==modal){
+            modal.style.display ="none";
+        }
+    }
+</script>
+</div>
 <!-- Footer -->
 <footer class="w3-center w3-black w3-padding-32 w3-theme-d5">
   <p>Admin Page</p>
@@ -117,3 +148,21 @@ require "comp305.php";
 
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
