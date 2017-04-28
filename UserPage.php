@@ -58,7 +58,9 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Open Sans", sans-serif}
 
       <div class="w3-row-padding">
         <div class="w3-col m12 ">
-          <div class="w3-card-2 w3-round  " style="background-color:#ffe6e6">
+
+          <div class="w3-card-2 w3-round  " style="background-color:#ff4d4d">
+
             <div class="w3-container w3-padding">
                 <div class="w3-container" style="max-width:300px; max-height:300px; margin-bottom:20px" >
                     <?php
