@@ -59,7 +59,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Open Sans", sans-serif}
       <div class="w3-row-padding">
         <div class="w3-col m12 ">
 
-          <div class="w3-card-2 w3-round  " style="background-color:#ff4d4d">
+          <div class="w3-card-2 w3-round  w3-white">
 
             <div class="w3-container w3-padding">
                 <div class="w3-container" style="max-width:300px; max-height:300px; margin-bottom:20px" >
@@ -79,7 +79,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Open Sans", sans-serif}
                                 'Alpha Chi Rho', 'Alpha Sigma Phi','Kappa Delta Rho', 'Phi Mu Delta', 'Alpha Sigma Tau','Sigma Kappa', 'Sigma Sigma Sigma', 'Zeta Tau Alph'
                             ];
                             document.write("<p>Fraternity / Sorority: "+fsNames[fos-1]+"</p>");
-                            document.write("<p>Password: <span style='background-color:black'><span class='password w3-border'>"+pass+"</span></span></p>");
+                            document.write("<p>Password (hover over black box to reveal): <span style='background-color:black '><span class='password w3-border'>"+pass+"</span></span></p>");
                         </script>
                         
                     </div> 
@@ -156,9 +156,8 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Open Sans", sans-serif}
                         document.write("<img src='"+imgArray[fos].src+"'/>");
                     </script>
           <hr>
-          <p><button class="w3-button w3-block w3-theme-l4">Learn More</button></p>
+          <p><button class="w3-button w3-block w3-theme-l4">     </button></p>
           <!-- Profile -->
-           // <p> This is where the outline of the fraternity or sorority would pop up and be nice to look at. with link to fb and twitter.</p>
               <hr>
             	  <a href="logOut.php"><button type="button" class="w3-button w3-theme" ><i class="fa fa-pencil"></i>  Log Out</button></a>
             </div>
