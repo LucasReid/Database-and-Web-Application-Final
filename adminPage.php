@@ -1,12 +1,7 @@
 <?php
 require "comp305.php";
 
-$memID = $_SESSION['Member_id'];
-$dues = $_SESSION['Dues_owed'];
-
-$SQL = "UPDATE Members Set Dues_owed='$dues' WHERE Member_id = '$memID'";
-mysqli_query($SQL);
-
+//header('Location: http://penguin.lhup.edu/~lnr7605/COMP305-master/adminPage.php ');
 ?>
 
 <!DOCTYPE html>
@@ -16,6 +11,7 @@ mysqli_query($SQL);
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="registerModal.css"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-red.css">
@@ -57,7 +53,6 @@ mysqli_query($SQL);
 </head>
 <body>
 
-
 <nav class="navbar navbar-inverse w3-theme-d5">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -89,6 +84,7 @@ mysqli_query($SQL);
     </div>
     <div class="col-sm-8 text-left"> 
       <h1>Welcome</h1>
+     
       <?php	
         if ( isset( $_SESSION["Member_id"]))
         {
@@ -102,41 +98,72 @@ mysqli_query($SQL);
         }
     ?>
       <hr>
-      <h3>View</h3>
+      <h3>Members Table</h3>
       <?php 
       	$fos = $_SESSION['FoS_id'];
 			writeRegistrationINFO($fos);      
       ?>
-      	<form action ='' method='POST'>
+      	<!--<form action ='' method='POST'>
 		<input type='' id ='MemberID' name='MemberID'/><br/>
 		<input type='submit' name='submit' />
-	</form>
+	</form>-->
+       
     </div>
     <div class="col-sm-2 sidenav">
     </div>
   </div>
 </div>
 
-
-<button type="button" onclick="document.getElementById('edit').style.display='block'">test</button>
 <div id="edit" class="modal">
 	<span onclick="document.getElementById('edit').style.display='none'" class="close" title="Close Modal">&times;</span>
-	<form class="modal-content animate" name="data-input" action="" method="POST">
-	<div class="w3-container">
+	<form class="modal-content animate " name="data-input" method="POST">
+	<div class="w3-container w3-card-4 w3-padding-32">
+        <?php
+        
+        $postDues = $_POST['Dues_owed'];
+        $postMem = $_POST['Member_id'];
+        
+        $servername = "willy";
+        $username = "comp305_grp1";
+        $password = "Temp!comp305_grp1";
+        $dbname = "comp305_grp1";
+        // Create connection
+        $conn = new mysqli($servername, $username, $password, $dbname);
+        // Check connection
+        if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
+        }
 
-		<p>HEY</p>
-		<input type="number" id="dues" name="Dues_owed"/>		
-		<input type="submit" name="submit" value="Update Dues" />
+        $SQL = "UPDATE Members SET Dues_owed=$postDues WHERE Member_id = $postMem";
+        mysqli_query($conn, $SQL);
+        ?>
+        <script>
+            function clickEvent(id){
+                getButtonValue(id);
+                startModal();
+            }
+            function startModal(){
+                document.getElementById('edit').style.display='block';
+            }
+            
+            function getButtonValue(id){					
+                var final = document.getElementById('Member_id').value = id;  
+            }
+        </script>
+        <label>Update Dues Owed:</label><br>
+		<input type="number" id="Dues_owed" name="Dues_owed"/>		
+		<input type="number" id="Member_id" name="Member_id" style="display:none" value=""/>
+		<button type="submit" name="submit" class="w3-button w3-green">Update Dues</button>
 		
 		</div>
 	</form>
-
+		
 <script>
     var modal = document.getElementById('edit');
     
     window.onclick = function(event){
         if(event.target==modal){
-            modal.style.display ="none";
+            modal.style.display ="block";
         }
     }
 </script>

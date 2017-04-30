@@ -177,9 +177,9 @@ function WriteRegistrationINFO($fos)
                 echo $Row[$i]."</td>\n";
 
             }
-				echo "<td>";
-				echo "<button class='w3-button w3-red' type='button' value='test' onclick=\"document.getElementById('edit').style.display='block'\">edit</button>";
-				echo "</td>";
+            echo "<td>";
+            echo "<button id='memberButton' class='w3-button w3-red' type='button' value='".$Row[0]."' onclick=\"clickEvent(".$Row[0].");\">edit</button>";
+			echo "</td>";
             // end of the table row
             echo "   </tr>\n";
         }

@@ -8,7 +8,7 @@ ini_set("display_errors", 1);
 ?>
 <!DOCTYPE html>
 <head>
-<meta charset="UTF-8"></meta>
+<meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/lib/w3.css">
 <link rel="stylesheet" type="text/css" href="mainCSS.css"/>

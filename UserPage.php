@@ -71,18 +71,9 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Open Sans", sans-serif}
                 </div>
                 <div style="padding:35px;">
                     <h5 class="w3-opacity"><b>Lock Haven University of Pennsylvania Sorority and Fraternity</b></h5>
-                    <div>
-                        <script>
-                            var fos = "<?php echo $fos?>";
-                            var pass = "<?php echo $pass?>";
-                            var fsNames=[
-                                'Alpha Chi Rho', 'Alpha Sigma Phi','Kappa Delta Rho', 'Phi Mu Delta', 'Alpha Sigma Tau','Sigma Kappa', 'Sigma Sigma Sigma', 'Zeta Tau Alph'
-                            ];
-                            document.write("<p>Fraternity / Sorority: "+fsNames[fos-1]+"</p>");
-                            document.write("<p>Password (hover over black box to reveal): <span style='background-color:black '><span class='password w3-border'>"+pass+"</span></span></p>");
-                        </script>
-                        
-                    </div> 
+                    
+                    <p> Please don't forget your password!<br>If you have any questions or concerns please feel free to contact your Fraternity / Sorority Admin.</p>
+                  
                     <hr>
                     <?php
                         if($_SESSION['Member_name']!==null)
@@ -108,7 +99,19 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Open Sans", sans-serif}
                         {
                             echo "<center>You are not logged in</center>";
                         }
-                    ?>					
+                    ?>
+                      <div>
+                        <script>
+                            var fos = "<?php echo $fos?>";
+                            var pass = "<?php echo $pass?>";
+                            var fsNames=[
+                                'Alpha Chi Rho', 'Alpha Sigma Phi','Kappa Delta Rho', 'Phi Mu Delta', 'Alpha Sigma Tau','Sigma Kappa', 'Sigma Sigma Sigma', 'Zeta Tau Alph'
+                            ];
+                            document.write("<p>Fraternity / Sorority: "+fsNames[fos-1]+"</p>");
+                            document.write("<p>Password (hover over box to reveal): <span style='background-color:black '><span class='password w3-border'>"+pass+"</span></span></p>");
+                        </script>
+                        
+                    </div> 
                 </div>
               </div>
             </div>
@@ -123,12 +126,13 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Open Sans", sans-serif}
         <div class="w3-container">
             <?php
                 echo"<p>Welcome: ".$_SESSION['Member_name']."</p>";
+                
             ?>
+            <hr>
             <script>
                         var fos = "<?php echo $fos ?>";
                         
                         var imgArray = new Array();
-
                         imgArray[1] = new Image();
                         imgArray[1].src ='pictures/ACR.jpg'; 
                         
@@ -156,9 +160,9 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Open Sans", sans-serif}
                         document.write("<img src='"+imgArray[fos].src+"'/>");
                     </script>
           <hr>
-          <p><button class="w3-button w3-block w3-theme-l4">     </button></p>
+          <!--<p><button class="w3-button w3-block w3-theme-l4">     </button></p>-->
           <!-- Profile -->
-              <hr>
+              
             	  <a href="logOut.php"><button type="button" class="w3-button w3-theme" ><i class="fa fa-pencil"></i>  Log Out</button></a>
             </div>
         </div>
@@ -193,4 +197,3 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Open Sans", sans-serif}
     
 </footer>
 </body>
-

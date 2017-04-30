@@ -56,7 +56,7 @@ $result=mysql_query($sql);
 $count=mysql_num_rows($result);
 $row=mysql_fetch_assoc($result);
 // If result matched $myusername and $mypassword, table row must be 1 row
-
+ 
 if($count==1){
 
 // Register $myusername, $mypassword and redirect to file "login_success.php"
