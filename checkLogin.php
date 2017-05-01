@@ -12,7 +12,7 @@
         
     <h1 class="w3-center">LHU GREEK Login / Register</h1>
     <?php	
-        if ( isset( $_SESSION["Member_id"]))
+        if ( isset( $_SESSION["Member_name"]))
         {
         // echo the current user
             echo "   <h5 class='w3-center'>Current User: ".$_SESSION["Member_name"]."</h5>\n";
